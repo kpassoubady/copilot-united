@@ -35,3 +35,4 @@ Open `http://127.0.0.1:8000` and try `http://127.0.0.1:8000/health`.
 
 - Default DB is SQLite (no setup needed). Example URL: `sqlite:///./task_manager.db`.
 - For PostgreSQL, use `postgresql+psycopg2://user:password@localhost:5432/task_manager`.
+  **Note:** If you switch to PostgreSQL, install the driver with `pip install psycopg2-binary`.
