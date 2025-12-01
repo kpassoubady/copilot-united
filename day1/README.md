@@ -76,7 +76,7 @@ By end of Day 1, students will:
 
 ---
 
-# Advanced Context & Web Layer Development
+## Advanced Context & Web Layer Development
 
 **Focus**: Hash Context Variables & Frontend Implementation
 
@@ -99,9 +99,9 @@ By end of Day 1, students will:
 
 ### Context Mastery Foundation
 
-- **Setup Verification** - [Frontend Setup](../exercise/1-setup/day2-frontend-setup.md)
+- **Setup Verification** - [Frontend Setup](../exercise/1-setup/day1-frontend-setup.md)
 - **Hash Context Introduction** - #file, #selection, #codebase patterns and strategies
-- **Web Layer Development** - [Web Interface Templates](../exercise/2-breakout/2b-Day2-Session2-Web-Interface-Templates.md)
+- **Web Layer Development** - [Web Interface Templates](../exercise/2-breakout/4-Day1-Session-Web-Interface-Templates.md)
 - **Knowledge Assessment** - Hash context variables and multi-context strategies
 
 ### Advanced Context Applications
