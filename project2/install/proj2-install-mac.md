@@ -15,15 +15,29 @@ python3 --version
 pip3 --version
 ```
 
-## 2. Create and activate a virtual environment
+## 2. Recommended: use the included starter
+
+The repo includes a ready-to-run starter at `project2/task-manager`.
+
+```bash
+cd project2/task-manager
+python3 -m venv .venv
+source .venv/bin/activate
+pip3 install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+Open `http://127.0.0.1:8000` (docs at `/docs`).
+
+## 3. Alternatively: scaffold manually
+
+Create a project folder and venv:
 
 ```bash
 mkdir -p ~/copilot/project2 && cd ~/copilot/project2
 python3 -m venv .venv
 source .venv/bin/activate
 ```
-
-## 3. Install dependencies
 
 Create `requirements.txt`:
 
@@ -44,25 +58,36 @@ Install:
 pip3 install -r requirements.txt
 ```
 
-## 4. Scaffold a minimal app
-
 Create folders:
 
 ```bash
 mkdir -p app/templates app/static/css app/static/js
 ```
 
-Create `app/main.py`:
+Create `app/main.py` (uses file-relative paths and ensures folders exist):
 
 ```python
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
+import pathlib
 
-app = FastAPI()
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
-templates = Jinja2Templates(directory="app/templates")
+app = FastAPI(title="Python Task Manager")
+
+BASE_DIR = pathlib.Path(__file__).resolve().parent
+STATIC_DIR = BASE_DIR / "static"
+TEMPLATES_DIR = BASE_DIR / "templates"
+
+STATIC_DIR.mkdir(parents=True, exist_ok=True)
+TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
+
+app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
+
+@app.get("/health")
+def health() -> dict:
+    return {"status": "ok"}
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
@@ -87,13 +112,11 @@ Create `app/templates/index.html`:
   </html>
 ```
 
-## 5. Run the dev server
+Run the dev server:
 
 ```bash
 uvicorn app.main:app --reload
 ```
-
-Open `http://127.0.0.1:8000`
 
 API docs:
 
@@ -102,12 +125,12 @@ Swagger UI: http://127.0.0.1:8000/docs
 ReDoc:      http://127.0.0.1:8000/redoc
 ```
 
-## 6. VS Code extensions
+## 4. VS Code extensions
 
 - Python, Pylance, Jinja
 - GitHub Copilot, GitHub Copilot Chat
 
-## 7. Database URLs (SQLAlchemy)
+## 5. Database URLs (SQLAlchemy)
 
 ```text
 SQLite:      sqlite:///./task_manager.db

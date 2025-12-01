@@ -2,8 +2,11 @@
 
 **Duration**: 1 Day × 8 Hours (including bio-breaks)
 **Focus**: Hands-on GitHub Copilot mastery while building a Personal Expense Tracker web app (testing excluded)
-**Audience**: Working professionals (language-agnostic), especially those familiar with Java/Spring Boot
-**Prerequisites**: IDE with GitHub Copilot enabled; basic Git familiarity; optional: JDK/Maven for backend
+**Audience**: Working professionals (language-agnostic)
+**Tracks**: Java (Spring Boot) or Python (FastAPI) — same 1‑day flow
+**Prerequisites**: IDE with GitHub Copilot enabled; basic Git. Choose one track's tooling:
+- Java Track: JDK 21 + Maven
+- Python Track: Python 3.11+ (3.12 recommended)
 
 ---
 
@@ -58,11 +61,29 @@ This intensive 1-day program focuses on mastering GitHub Copilot through practic
 
 ## 🛠️ Project Context (Technology-Agnostic, Java-Friendly)
 
-- Backend (example): Spring Boot, H2 (optional for demo)
-- Frontend: Thymeleaf or minimal templating; Bootstrap for styling
+- Two parallel tracks share the same Copilot curriculum:
+  - Java Track: Spring Boot Task Manager (H2 for dev)
+  - Python Track: FastAPI Task Manager (SQLite for dev)
+- Frontend: Thymeleaf/Jinja2 templates; Bootstrap for styling
 - Tools: GitHub Copilot (VS Code/IntelliJ), REST Client (optional)
 
 Note: The course emphasizes Copilot workflows over specific framework training.
+
+---
+
+## 🧩 Track Setup (Install Guides)
+
+Install prerequisites for your chosen track before class:
+
+- Java Track (Spring Boot Task Manager)
+  - Windows: `project1/install/proj1-install-win.md`
+  - macOS: `project1/install/proj1-install-mac.md`
+
+- Python Track (FastAPI Task Manager)
+  - Windows: `project2/install/proj2-install-win.md`
+  - macOS: `project2/install/proj2-install-mac.md`
+
+All install links in one place: `./install.md`
 
 ---
 
