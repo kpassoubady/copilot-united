@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 import pathlib
+from pydantic import BaseModel
 
 app = FastAPI(title="Python Task Manager")
 
@@ -17,9 +18,13 @@ app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
 
-@app.get("/health")
-def health() -> dict:
-    return {"status": "ok"}
+class HealthResponse(BaseModel):
+    status: str
+
+
+@app.get("/health", response_model=HealthResponse)
+def health() -> HealthResponse:
+    return HealthResponse(status="ok")
 
 
 @app.get("/", response_class=HTMLResponse)
