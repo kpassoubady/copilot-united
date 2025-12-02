@@ -5,6 +5,7 @@
 **Audience**: Working professionals (language-agnostic)
 **Tracks**: Java (Spring Boot) or Python (FastAPI) — same 1‑day flow
 **Prerequisites**: IDE with GitHub Copilot enabled; basic Git. Choose one track's tooling:
+
 - Java Track: JDK 21 + Maven
 - Python Track: Python 3.11+ (3.12 recommended)
 
@@ -180,9 +181,9 @@ All install links in one place: `./install.md`
 - Advanced Context & Web: `day1/Copilot-Hash-Context.md`, `day1/Copilot-Editing-Session.md`
 - Shortcuts & Settings: `day1/Copilot-ShortCuts.md`, `day1/Copilot-VS-Code-Settings-Reference.md`
 - Customizations: `day1/Copilot-Custom-Chat-Modes.md`, `day1/Copilot-Custom-Instructions.md`
- - Agents & Tools: `day1/Copilot-Agents.md`, `day1/Copilot-Tool-Sets.md`
- - Automation: `day1/Copilot-Auto-Commit-Setup.md`
- - Troubleshooting: `day1/VS-Code-GitHub-Copilot-Logs.md`, `day1/VS-Code-Restore-Points.md`
+- Agents & Tools: `day1/Copilot-Agents.md`, `day1/Copilot-Tool-Sets.md`
+- Automation: `day1/Copilot-Auto-Commit-Setup.md`
+- Troubleshooting: `day1/VS-Code-GitHub-Copilot-Logs.md`, `day1/VS-Code-Restore-Points.md`
 
 ---
 
