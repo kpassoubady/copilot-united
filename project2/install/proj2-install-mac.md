@@ -130,7 +130,29 @@ ReDoc:      http://127.0.0.1:8000/redoc
 - Python, Pylance, Jinja
 - GitHub Copilot, GitHub Copilot Chat
 
-## 5. Database URLs (SQLAlchemy)
+## 5. Running Tests (Optional)
+
+The starter includes a basic test suite using pytest.
+
+```bash
+# Install pytest (already in requirements.txt)
+pip3 install pytest
+
+# Run all tests
+PYTHONPATH=. pytest -q
+
+# Verbose output
+PYTHONPATH=. pytest -vv
+
+# Stop on first failure
+PYTHONPATH=. pytest -x
+
+# With coverage report (requires pytest-cov)
+pip3 install pytest-cov
+PYTHONPATH=. pytest --cov=app --cov-report=term-missing
+```
+
+## 6. Database URLs (SQLAlchemy)
 
 ```text
 SQLite:      sqlite:///./task_manager.db
