@@ -2,6 +2,8 @@
 
 **Focus**: Interface Mastery & Service Layer Implementation
 
+**Tracks**: Java (Spring Boot) or Python (FastAPI) — choose one based on your setup
+
 ## 📚 Learning Materials
 
 ### Core GitHub Copilot Basics
@@ -27,9 +29,9 @@
 
 ### Foundation Building
 
-- **Setup Verification** - [Day 1 Setup Guide](../exercise/1-setup/day1-backend-setup.md)
+- **Setup Verification** - [Java Track Setup](../java-exercise/1-setup/day1-backend-setup.md) | [Python Track Setup](../python-exercise/1-setup/day1-backend-setup.md)
 - **Interface Mastery** - [Copilot Interface Basics](3-1-Copilot-Interface-Basic-Usage.md)
-- **Backend Development** - [Day 1 Backend Service Layer](../exercise/2-breakout/1b-Day1-Session2-Services-Business-Logic.md)
+- **Backend Development** - [Java Track](../java-exercise/2-breakout/2-Day1-Session2-Services-Business-Logic.md) | Python Track (coming soon)
 - **Knowledge Assessment** - Interface, shortcuts, and basic commands
 
 ### Advanced Skills Development
@@ -70,7 +72,7 @@ By end of Day 1, students will:
 ## 📁 Resources
 
 - **Images**: Visual references in [images/](images/) folder
-- **Exercise Files**: Complete exercises in [Exercises/](../exercise/) folder  
+- **Exercise Files**: [Java Track](../java-exercise/) | [Python Track](../python-exercise/)  
 - **Setup Scripts**: Day-specific setup verification
 - **Project Code**: Located in [../../project1/task-manager/](../project1/task-manager/)
 
@@ -99,9 +101,9 @@ By end of Day 1, students will:
 
 ### Context Mastery Foundation
 
-- **Setup Verification** - [Frontend Setup](../exercise/1-setup/day1-frontend-setup.md)
+- **Setup Verification** - [Java Frontend Setup](../java-exercise/1-setup/day1-frontend-setup.md) | Python Frontend Setup (coming soon)
 - **Hash Context Introduction** - #file, #selection, #codebase patterns and strategies
-- **Web Layer Development** - [Web Interface Templates](../exercise/2-breakout/4-Day1-Session-Web-Interface-Templates.md)
+- **Web Layer Development** - [Java Track](../java-exercise/2-breakout/4-Day1-Session-Web-Interface-Templates.md) | Python Track (coming soon)
 - **Knowledge Assessment** - Hash context variables and multi-context strategies
 
 ### Advanced Context Applications

@@ -1,10 +1,10 @@
-git git# 🏗️ Personal Expense Tracker - GitHub Copilot Mastery Bootcamp
+# 🏗️ Personal Expense Tracker - Java Track (Spring Boot)
 
 ## 🎯 Learning Journey Overview
 
 **Setup Verification**: Run [`1-setup/day1-backend-setup.md`](1-setup/day1-backend-setup.md) before starting!
 
-Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot Mastery Bootcamp**! Over the next three days, you'll build a complete, production-ready web application while mastering advanced AI-assisted development techniques. This intensive learning experience combines full-stack development with cutting-edge AI collaboration skills.
+Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot Mastery Bootcamp**! In this intensive 1-day course, you'll build a complete, production-ready Spring Boot web application while mastering AI-assisted development techniques. This learning experience combines full-stack Java development with cutting-edge AI collaboration skills.
 
 **🤖 AI-First Approach**: Each session emphasizes progressive GitHub Copilot mastery, from basic completions to advanced custom instructions and professional workflows.
 
@@ -12,13 +12,13 @@ Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot M
 
 ---
 
-## 📚 3-Day Learning Path
+## 📚 Learning Path
 
-### 🏗️ Day 1: Backend & Service Layer (2 Sessions × 45 minutes each)
+### 🏗️ Day 1 Morning: Backend & Service Layer (2 Sessions × 45 minutes each)
 
 **🎯 Focus**: Build a Solid Foundation with Basic-to-Intermediate Copilot Skills
 
-#### Session 1: [Entities & Repositories + Copilot Basics](2-breakout/1a-Day1-Session1-Entities-Repositories.md)
+#### Session 1: [Entities & Repositories + Copilot Basics](2-breakout/1-Day1-Session1-Entities-Repositories.md)
 
 **What You'll Learn:**
 
@@ -31,7 +31,7 @@ Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot M
 **⏱️ Duration**: 45 minutes (Extended for comprehensive Copilot integration)  
 **🎁 Deliverables**: Working entities, repositories + foundational Copilot skills
 
-#### Session 2: [Services & Business Logic + Pattern Recognition](2-breakout/1b-Day1-Session2-Services-Business-Logic.md)
+#### Session 2: [Services & Business Logic + Pattern Recognition](2-breakout/2-Day1-Session2-Services-Business-Logic.md)
 
 **What You'll Learn:**
 
@@ -55,7 +55,7 @@ Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot M
 
 ---
 
-### 🎨 Day 2: Web Layer & Frontend (2 Sessions × 45 minutes each)
+### 🎨 Day 1 Afternoon: Web Layer & Frontend (2 Sessions × 45 minutes each)
 
 **🎯 Focus**: Create Beautiful User Interface with Advanced Copilot Techniques
 
@@ -108,11 +108,10 @@ Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot M
 
 ### 🎓 **Learning Outcomes**
 
-By the end of this 3-day intensive bootcamp, you'll have:
+By the end of this intensive bootcamp, you'll have:
 
 - **Technical Skills**: Full-stack Spring Boot development with AI-assisted expertise
 - **AI Collaboration Mastery**: Complete GitHub Copilot proficiency from basic to professional level
-- **Testing Knowledge**: Comprehensive testing strategies with AI-generated test automation
 - **Professional Practices**: Enterprise-grade code quality, validation, and deployment readiness
 - **Custom AI Workflows**: Personalized instructions and professional development patterns
 - **Portfolio Project**: A production-ready application demonstrating AI-assisted development excellence
@@ -186,7 +185,7 @@ After completing all three days, you'll have created:
 
 Ready to begin your learning journey? Start with any day based on your current progress:
 
-1. **🏗️ [Begin Day 1: Backend & Service Layer](2-breakout/1a-Day1-Session1-Entities-Repositories.md)**
+1. **🏗️ [Begin Day 1: Backend & Service Layer](2-breakout/1-Day1-Session1-Entities-Repositories.md)**
    - Perfect starting point for the complete journey
    - Build solid foundations with data models and business logic
 
@@ -247,14 +246,14 @@ Each session includes:
 
 ### **🎯 Start Your Journey:**
 
-**👉 Begin with Day 1 Session 1: [Entities & Repositories](2-breakout/1a-Day1-Session1-Entities-Repositories.md)**
+**👉 Begin with Day 1 Session 1: [Entities & Repositories](2-breakout/1-Day1-Session1-Entities-Repositories.md)**
 
 Each session is designed to be completed in **45 minutes of focused time** with comprehensive GitHub Copilot integration and practical exercises. The extended timing allows for deep exploration of AI-assisted development patterns that you can apply to any professional project!
 
 **Complete Course Structure:**
 
 - **Day 1**: Backend Foundation + Basic-to-Intermediate Copilot Skills (2 × 45 min sessions)  
-- **Day 2**: Web Interface Development + Chat Interface & Agent Mastery (2 × 45 min sessions)
+- **Day 1**: Web Interface Development + Chat Interface & Agent Mastery (2 × 45 min sessions)
 
 **🎓 Total Learning Time**: 8 hours of intensive AI-assisted development mastery
 
