@@ -108,7 +108,7 @@ All install links in one place: `./install.md`
 
 ### Kahoot 1 (15 min)
 
-### Bio Break (15 min)
+### Morning Break (15 min)
 
 ### 3. Breakout 1: Backend Modeling with Copilot (90 min)
 
@@ -132,6 +132,10 @@ All install links in one place: `./install.md`
 - API testing via REST Client examples (conceptual; focus on Copilot workflows)
 - References: `day1/Copilot-Editing-Session.md`, `day1/Copilot-Custom-Chat-Modes.md`
 
+### Afternoon Break (15 min)
+
+### Kahoot 2 (15 mins)
+
 ### 6. Efficiency & Advanced Usage (45 min)
 
 - Custom instructions; tailoring behavior to your project
@@ -145,10 +149,6 @@ All install links in one place: `./install.md`
 - Using restore points and rollback strategies in VS Code
 - When to disable Copilot temporarily; safe re-enable patterns
 - References: `day1/VS-Code-GitHub-Copilot-Logs.md`, `day1/VS-Code-Restore-Points.md`, `day1/Disable-Copilot.md`
-
-### Kahoot 2 (15 mins)
-
-### Evening Break (15 min)
 
 ### 7. Wrap-up & Document generation (35 min)
 
@@ -195,19 +195,19 @@ All install links in one place: `./install.md`
 ## 🕒 Session Breakdown Table
 
 | Session Topic                                | Duration |
-| -------------------------------------------- | -------- |
+|----------------------------------------------|----------|
 | Foundations: Generative AI + Tools Landscape | 30 min   |
 | Copilot Setup & Interface Mastery            | 45 min   |
 | Kahoot 1                                     | 15 min   |
-| Morning Bio Break                            | 15 min   |
+| Morning Break                                | 15 min   |
 | Breakout 1: Backend Modeling with Copilot    | 90 min   |
 | Lunch Break                                  | 45 min   |
 | Copilot Chat & Context Mastery               | 45 min   |
 | Breakout 2: Web Layer & APIs                 | 90 min   |
+| Kahoot 2                                     | 15 min   |
+| Afternoon Break                              | 15 min   |
 | Efficiency & Advanced Usage                  | 45 min   |
 | Troubleshooting and Recovery                 | 15 min   |
-| Kahoot 2                                     | 15 min   |
-| Afternoon Bio Break                          | 15 min   |
 | Wrap-up                                      | 35 min   |
 
 **Total Duration:** 8 hours (480 minutes)
