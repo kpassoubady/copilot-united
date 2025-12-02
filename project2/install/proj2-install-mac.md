@@ -154,7 +154,15 @@ PYTHONPATH=. pytest --cov=app --cov-report=term-missing
 
 ## 6. Database URLs (SQLAlchemy)
 
-```text
-SQLite:      sqlite:///./task_manager.db
-PostgreSQL:  postgresql+psycopg2://user:password@localhost:5432/task_manager
-```
+- Default is SQLite (no setup needed):
+  ```text
+  sqlite:///./task_manager.db
+  ```
+
+- **Optional:** For PostgreSQL, install the driver and use:
+  ```bash
+  pip3 install psycopg2-binary
+  ```
+  ```text
+  postgresql+psycopg2://user:password@localhost:5432/task_manager
+  ```
