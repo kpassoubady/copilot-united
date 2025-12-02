@@ -87,7 +87,7 @@ Install prerequisites for your chosen track before class:
   - Windows: [proj2-install-win.md](../project2/install/proj2-install-win.md)
   - macOS: [proj2-install-mac.md](../project2/install/proj2-install-mac.md)
 
-All install links in one place: [install.md](./install.md)
+All install links in one place: [install.md](./../install.md)
 
 ---
 
