@@ -127,8 +127,11 @@ ReDoc:      http://127.0.0.1:8000/redoc
 
 ## 4. VS Code extensions
 
-- Python, Pylance, Jinja
-- GitHub Copilot, GitHub Copilot Chat
+- Python (Microsoft) — Python language support
+- Pylance — Fast Python language server
+- Jinja — Syntax highlighting for Jinja2 templates
+- GitHub Copilot — AI-powered code suggestions
+- GitHub Copilot Chat — Interactive AI assistance
 
 ## 5. Running Tests (Optional)
 

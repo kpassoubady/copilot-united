@@ -1,9 +1,13 @@
 # GitHub Copilot - 1 Day (Personal Expense Tracker)
 
-**Duration**: 1 Day × 8 Hours (including bio-breaks)
-**Focus**: Hands-on GitHub Copilot mastery while building a Personal Expense Tracker web app (testing excluded)
-**Audience**: Working professionals (language-agnostic)
+**Duration**: 1 Day × 8 Hours (including bio-breaks & lunch)
+
+**Focus**: Hands-on GitHub Copilot mastery while building a Personal Expense Tracker web app
+
+**Audience**: Working professionals (Java/Python)
+
 **Tracks**: Java (Spring Boot) or Python (FastAPI) — same 1‑day flow
+
 **Prerequisites**: IDE with GitHub Copilot enabled; basic Git. Choose one track's tooling:
 
 - Java Track: JDK 21 + Maven
@@ -33,11 +37,10 @@ This intensive 1-day program focuses on mastering GitHub Copilot through practic
   - Code completion, refactoring, and reliability improvements
   - Debugging/issue resolution with AI suggestions
   - Automated documentation (inline comments, function explanations)
-  - Test case generation concepts (covered conceptually; no implementation today)
 - Maximizing Efficiency
   - Customizing settings, language preferences, and integrations
   - Shortcuts and commands for efficient navigation
-  - Integrating into GitHub workflows; ethical and security considerations
+  - Copilot ethical and security considerations
 - Advanced Usage
   - Extending with plugins
   - Advanced refactoring assist and optimization
@@ -90,7 +93,7 @@ All install links in one place: `./install.md`
 
 ## ⏰ 8-Hour Schedule
 
-### 1. Foundations: Generative AI + Tools Landscape (45 min)
+### 1. Foundations: Generative AI + Tools Landscape (30 min)
 
 - Generative AI concepts and NLG basics
 - Comparison: GitHub Copilot vs Cursor, Microsoft Copilot vs ChatGPT
@@ -103,6 +106,10 @@ All install links in one place: `./install.md`
 - Understanding suggestion quality, context-aware completions
 - References: `day1/1.4-Copilot-IDE-Integration.md`, `day1/Copilot-ShortCuts.md`
 
+### Kahoot 1 (15 min)
+
+### Bio Break (15 min)
+
 ### 3. Breakout 1: Backend Modeling with Copilot (90 min)
 
 - Exercise: Generate entities (Expense, Category) via Copilot completion
@@ -110,7 +117,7 @@ All install links in one place: `./install.md`
 - Add service layer (business logic) with `/generate` and `/explain`
 - References: `day1/3-3-Code-Generation-Practical-Exercises.md`, `day1/Copilot-Chat-Cookbook.md`
 
-### Bio Break (15 min)
+### Lunch Break (45 min)
 
 ### 4. Copilot Chat & Context Mastery (45 min)
 
@@ -118,14 +125,12 @@ All install links in one place: `./install.md`
 - Multi-context strategies and progressive context building
 - References: `day1/Copilot-Hash-Context.md`, `day1/Copilot-Workspace-Context.md`
 
-### 5. Breakout 2: Web Layer & APIs (85 min)
+### 5. Breakout 2: Web Layer & APIs (90 min)
 
 - Generate REST controllers using `#codebase` for consistency
 - Implement basic Thymeleaf templates with Bootstrap; optional AJAX
 - API testing via REST Client examples (conceptual; focus on Copilot workflows)
 - References: `day1/Copilot-Editing-Session.md`, `day1/Copilot-Custom-Chat-Modes.md`
-
-### Lunch Break (45 min)
 
 ### 6. Efficiency & Advanced Usage (45 min)
 
@@ -141,20 +146,14 @@ All install links in one place: `./install.md`
 - When to disable Copilot temporarily; safe re-enable patterns
 - References: `day1/VS-Code-GitHub-Copilot-Logs.md`, `day1/VS-Code-Restore-Points.md`, `day1/Disable-Copilot.md`
 
-### Evening Break (20 min)
+### Kahoot 2 (15 mins)
 
-### 7. Wrap-up & Workflow Integration (35 min)
+### Evening Break (15 min)
 
-- Integrating Copilot into GitHub workflows and PRs
+### 7. Wrap-up & Document generation (35 min)
+
 - Documentation generation patterns with context
 - Personal Copilot workflow blueprint
-
----
-
-## 🧪 What’s Excluded Today
-
-- Testing exercises (JUnit/TestNG/Selenium) are intentionally excluded from this 1-day course.
-- Testing is discussed conceptually but not implemented.
 
 ---
 
@@ -169,7 +168,7 @@ All install links in one place: `./install.md`
 ## 🔧 Copilot Workflow Highlights (Practiced Throughout)
 
 - Prompting patterns and progressive context building
-- Slash commands: `/explain`, `/generate`, `/fix`, `/optimize` (testing-related commands discussed only)
+- Slash commands: `/explain`, `/generate`, `/fix`, `/optimize`
 - `@workspace` insights for architecture and consistency
 - Multi-file editing sessions and refactoring assistance
 
@@ -192,3 +191,23 @@ All install links in one place: `./install.md`
 - Learn by doing with AI-first workflows
 - Emphasize context-aware assistance over framework minutiae
 - Build a portfolio-ready app while mastering Copilot usage
+
+## 🕒 Session Breakdown Table
+
+| Session Topic                                | Duration |
+| -------------------------------------------- | -------- |
+| Foundations: Generative AI + Tools Landscape | 30 min   |
+| Copilot Setup & Interface Mastery            | 45 min   |
+| Kahoot 1                                     | 15 min   |
+| Morning Bio Break                            | 15 min   |
+| Breakout 1: Backend Modeling with Copilot    | 90 min   |
+| Lunch Break                                  | 45 min   |
+| Copilot Chat & Context Mastery               | 45 min   |
+| Breakout 2: Web Layer & APIs                 | 90 min   |
+| Efficiency & Advanced Usage                  | 45 min   |
+| Troubleshooting and Recovery                 | 15 min   |
+| Kahoot 2                                     | 15 min   |
+| Afternoon Bio Break                          | 15 min   |
+| Wrap-up                                      | 35 min   |
+
+**Total Duration:** 8 hours (480 minutes)

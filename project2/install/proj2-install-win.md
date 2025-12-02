@@ -1,25 +1,31 @@
 # Project 2: Python Task Manager (FastAPI) — Windows Install
 
 This guide sets up a minimal FastAPI app with Jinja2 templates and SQLite on Windows 11.
+
 ## 1. Install Python and verify
 
 Download from <https://www.python.org/downloads/> and during setup:
+
 - Check “Add Python to PATH”
 - Choose “Customize installation” and keep pip enabled
 
 Verify:
+
 ```cmd
 python --version
 pip --version
 ```
+
 Optional (upgrade pip):
 
 ```cmd
 python -m pip install --upgrade pip
 ```
+
 ## 2. Recommended: use the included starter
 
 The repo includes a ready-to-run starter at `project2\task-manager`.
+
 ```cmd
 cd project2\task-manager
 python -m venv .venv
@@ -27,17 +33,20 @@ python -m venv .venv
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
+
 Open `http://127.0.0.1:8000` (docs at `/docs`).
 
 ## 3. Alternatively: scaffold manually
 
 Create a project directory and venv:
+
 ```cmd
 mkdir %USERPROFILE%\copilot\project2
 cd %USERPROFILE%\copilot\project2
 python -m venv .venv
 .venv\Scripts\activate
 ```
+
 Create `requirements.txt`:
 
 ```text
@@ -50,16 +59,19 @@ pydantic
 python-multipart
 passlib[bcrypt]
 ```
+
 Install:
 
 ```cmd
 pip install -r requirements.txt
 ```
+
 Create folders:
 
 ```cmd
 mkdir app\templates app\static\css app\static\js
 ```
+
 Create `app\main.py` (PowerShell example; uses file-relative paths and ensures folders exist):
 
 ```powershell
@@ -91,6 +103,7 @@ async def home(request: Request):
   return templates.TemplateResponse("index.html", {"request": request, "message": "Welcome to Python Task Manager!"})
 "@ | Out-File -Encoding utf8 app\main.py
 ```
+
 Create `app\templates\index.html`:
 
 ```powershell
@@ -110,6 +123,7 @@ Create `app\templates\index.html`:
   </html>
 "@ | Out-File -Encoding utf8 app\templates\index.html
 ```
+
 ## 4. Run the dev server
 
 ```cmd
@@ -124,10 +138,14 @@ API docs:
 Swagger UI: http://127.0.0.1:8000/docs
 ReDoc:      http://127.0.0.1:8000/redoc
 ```
+
 ## 5. VS Code extensions
 
-- Python, Pylance, Jinja
-- GitHub Copilot, GitHub Copilot Chat
+- Python (Microsoft) — Python language support
+- Pylance — Fast Python language server
+- Jinja — Syntax highlighting for Jinja2 templates
+- GitHub Copilot — AI-powered code suggestions
+- GitHub Copilot Chat — Interactive AI assistance
 
 ## 6. Running Tests (Optional)
 
@@ -154,15 +172,17 @@ set PYTHONPATH=. && pytest --cov=app --cov-report=term-missing
 ## 7. Database URLs (SQLAlchemy)
 
 - Default is SQLite (no setup needed):
+
   ```text
   sqlite:///./task_manager.db
   ```
 
 - **Optional:** For PostgreSQL, install the driver and use:
+
   ```cmd
   pip install psycopg2-binary
   ```
+
   ```text
   postgresql+psycopg2://user:password@localhost:5432/task_manager
   ```
-
