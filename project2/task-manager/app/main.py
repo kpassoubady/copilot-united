@@ -30,6 +30,7 @@ def health() -> HealthResponse:
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse(
+        request,
         "index.html",
-        {"request": request, "message": "Welcome to Python Task Manager!"},
+        {"message": "Welcome to Python Task Manager!"},
     )

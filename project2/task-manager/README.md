@@ -31,6 +31,26 @@ Open `http://127.0.0.1:8000` and try `http://127.0.0.1:8000/health`.
 - `requirements.txt`: Dependencies matching course install guides
 - `.gitignore`: Python caches, venv, and local DB files
 
+## Running Tests (Optional)
+
+```bash
+# Run all tests
+PYTHONPATH=. pytest -q
+
+# Run a specific test file
+PYTHONPATH=. pytest -q tests/test_main.py
+
+# Verbose output
+PYTHONPATH=. pytest -vv
+
+# Stop on first failure
+PYTHONPATH=. pytest -x
+
+# With coverage report (requires pytest-cov)
+pip install pytest-cov
+PYTHONPATH=. pytest --cov=app --cov-report=term-missing
+```
+
 ## Notes
 
 - Default DB is SQLite (no setup needed). Example URL: `sqlite:///./task_manager.db`.
