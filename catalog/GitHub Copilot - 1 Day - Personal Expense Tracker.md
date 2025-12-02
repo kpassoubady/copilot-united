@@ -79,15 +79,15 @@ Note: The course emphasizes Copilot workflows over specific framework training.
 
 Install prerequisites for your chosen track before class:
 
-- Java Track (Spring Boot Task Manager)
-  - Windows: `project1/install/proj1-install-win.md`
-  - macOS: `project1/install/proj1-install-mac.md`
+- **Java Track** (Spring Boot Task Manager)
+  - Windows: [proj1-install-win.md](../project1/install/proj1-install-win.md)
+  - macOS: [proj1-install-mac.md](../project1/install/proj1-install-mac.md)
 
-- Python Track (FastAPI Task Manager)
-  - Windows: `project2/install/proj2-install-win.md`
-  - macOS: `project2/install/proj2-install-mac.md`
+- **Python Track** (FastAPI Task Manager)
+  - Windows: [proj2-install-win.md](../project2/install/proj2-install-win.md)
+  - macOS: [proj2-install-mac.md](../project2/install/proj2-install-mac.md)
 
-All install links in one place: `./install.md`
+All install links in one place: [install.md](./install.md)
 
 ---
 
@@ -104,7 +104,6 @@ All install links in one place: `./install.md`
 - Install/validate GitHub Copilot; configure settings for optimal suggestions
 - Keyboard shortcuts and acceptance patterns
 - Understanding suggestion quality, context-aware completions
-- References: `day1/1.4-Copilot-IDE-Integration.md`, `day1/Copilot-ShortCuts.md`
 
 ### Kahoot 1 (15 min)
 
@@ -115,7 +114,6 @@ All install links in one place: `./install.md`
 - Exercise: Generate entities (Expense, Category) via Copilot completion
 - Implement repositories with custom queries using chat guidance
 - Add service layer (business logic) with `/generate` and `/explain`
-- References: `day1/3-3-Code-Generation-Practical-Exercises.md`, `day1/Copilot-Chat-Cookbook.md`
 
 ### Lunch Break (45 min)
 
@@ -123,14 +121,12 @@ All install links in one place: `./install.md`
 
 - Hash context variables: `#file`, `#selection`, `#codebase`, `#editor`, `#sym`
 - Multi-context strategies and progressive context building
-- References: `day1/Copilot-Hash-Context.md`, `day1/Copilot-Workspace-Context.md`
 
 ### 5. Breakout 2: Web Layer & APIs (90 min)
 
 - Generate REST controllers using `#codebase` for consistency
 - Implement basic Thymeleaf templates with Bootstrap; optional AJAX
 - API testing via REST Client examples (conceptual; focus on Copilot workflows)
-- References: `day1/Copilot-Editing-Session.md`, `day1/Copilot-Custom-Chat-Modes.md`
 
 ### Afternoon Break (15 min)
 
@@ -141,14 +137,12 @@ All install links in one place: `./install.md`
 - Custom instructions; tailoring behavior to your project
 - Plugins and integrations; advanced refactoring assistance
 - Ethical use, limitations, and security best practices
-- References: `day1/Copilot-Limitations.md`, `day1/Copilot-Custom-Instructions.md`
 
 ### 6a. Troubleshooting and Recovery (15 min)
 
 - Reading Copilot logs for diagnosing issues
 - Using restore points and rollback strategies in VS Code
 - When to disable Copilot temporarily; safe re-enable patterns
-- References: `day1/VS-Code-GitHub-Copilot-Logs.md`, `day1/VS-Code-Restore-Points.md`, `day1/Disable-Copilot.md`
 
 ### 7. Wrap-up & Document generation (35 min)
 
@@ -174,19 +168,7 @@ All install links in one place: `./install.md`
 
 ---
 
-## 📎 Reference Materials
-
-- Core: `day1/README.md`, `day1/Copilot-Setup-Guide.md`, `day1/3-1-Copilot-Interface-Basic-Usage.md`
-- Advanced Context & Web: `day1/Copilot-Hash-Context.md`, `day1/Copilot-Editing-Session.md`
-- Shortcuts & Settings: `day1/Copilot-ShortCuts.md`, `day1/Copilot-VS-Code-Settings-Reference.md`
-- Customizations: `day1/Copilot-Custom-Chat-Modes.md`, `day1/Copilot-Custom-Instructions.md`
-- Agents & Tools: `day1/Copilot-Agents.md`, `day1/Copilot-Tool-Sets.md`
-- Automation: `day1/Copilot-Auto-Commit-Setup.md`
-- Troubleshooting: `day1/VS-Code-GitHub-Copilot-Logs.md`, `day1/VS-Code-Restore-Points.md`
-
----
-
-## 💡 Teaching Philosophy
+##  Teaching Philosophy
 
 - Learn by doing with AI-first workflows
 - Emphasize context-aware assistance over framework minutiae
