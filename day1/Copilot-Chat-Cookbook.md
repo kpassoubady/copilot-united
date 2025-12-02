@@ -1,6 +1,6 @@
 # GitHub Copilot Chat Cookbook
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 This comprehensive cookbook provides practical examples and patterns for maximizing your productivity with GitHub Copilot Chat. Each scenario includes optimized prompts and context usage for best results.
 

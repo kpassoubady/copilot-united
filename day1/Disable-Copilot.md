@@ -1,6 +1,6 @@
 # GitHub Copilot Enable/Disable Controls
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 GitHub Copilot provides flexible control options to enable or disable its features at various levels, from global settings to language-specific and context-aware controls.
 

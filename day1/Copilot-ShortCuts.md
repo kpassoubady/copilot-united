@@ -1,6 +1,6 @@
 # GitHub Copilot Keyboard Shortcuts Reference
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Master GitHub Copilot with these essential keyboard shortcuts for maximum productivity across different platforms.
 

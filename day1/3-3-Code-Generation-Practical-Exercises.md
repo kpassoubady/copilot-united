@@ -1,6 +1,6 @@
 # GitHub Copilot Code Generation - Practical Exercises 🛠️
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 This hands-on exercise focuses on practical code generation using GitHub Copilot, covering utility function generation, data model creation, comprehensive documentation, and common design pattern implementation. Based on the Spring Boot Task Manager project structure.
 

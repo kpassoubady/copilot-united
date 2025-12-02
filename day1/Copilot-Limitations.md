@@ -1,6 +1,6 @@
 # GitHub Copilot Limitations and Considerations
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Understanding GitHub Copilot's current limitations helps set realistic expectations and develop effective workarounds for optimal productivity.
 

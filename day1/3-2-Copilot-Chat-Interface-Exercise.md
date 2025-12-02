@@ -1,6 +1,6 @@
 # GitHub Copilot Chat Interface Exercise 💬
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 This hands-on exercise focuses on mastering the GitHub Copilot Chat Interface, covering chat panel navigation, slash commands, context provision techniques, and workspace integration. Based on the Spring Boot Task Manager project structure.
 
@@ -9,7 +9,7 @@ This hands-on exercise focuses on mastering the GitHub Copilot Chat Interface, c
 By completing this exercise, you will master:
 
 - **Chat panel navigation and usage** - Understanding the chat interface and its capabilities
-- **Slash commands overview** - Using `/explain`, `/fix`, `/generate`, `/optimize` effectively
+- **Slash commands overview** - Using `/explain`, `/fix`, `/doc`, `/tests`, `/new` effectively
 - **Context provision techniques** - Leveraging file context, selections, and terminal context
 - **Chat participants and workspace integration** - Working with workspace-aware conversations
 

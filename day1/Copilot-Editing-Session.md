@@ -1,6 +1,6 @@
 # GitHub Copilot Editing Session
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Copilot Edits enables AI-powered multi-file editing sessions where you can iterate quickly on code changes across your entire workspace. This feature allows for complex refactoring, feature implementation, and codebase-wide improvements.
 

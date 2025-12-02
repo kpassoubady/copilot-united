@@ -1,6 +1,6 @@
 # GitHub Copilot Prompt Files 📄
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Prompt Files are reusable, shareable templates that standardize how you interact with GitHub Copilot. They enable consistent prompting patterns across teams and projects while capturing best practices for specific development scenarios.
 

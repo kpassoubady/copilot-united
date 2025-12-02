@@ -1,6 +1,6 @@
 # GitHub Copilot Workspace Context
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 The `@workspace` participant in GitHub Copilot Chat provides comprehensive understanding of your entire codebase, project structure, and development context. It's designed to help with architectural decisions, code discovery, and cross-file analysis.
 

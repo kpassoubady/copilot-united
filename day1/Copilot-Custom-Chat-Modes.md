@@ -1,6 +1,6 @@
 # GitHub Copilot Custom Chat Modes ⚡
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 This repository includes four specialized custom chat modes designed specifically for the NFCU GitHub Copilot training program. These modes complement the [built-in chat modes](../day1/Copilot-Built-In-Modes.md) with project-specific expertise and educational focus.
 
@@ -162,7 +162,7 @@ I'll create a robust LoginPage following Selenium best practices and project pat
 
 **Key Features:**
 
-- 3-day course structure awareness (Day 1: Foundations, Day 2: Advanced, Day 3: Integration)
+- 1-day course structure awareness (Morning: Foundations & Backend, Afternoon: Context & Web Layer)
 - Progressive learning approach from basic to advanced concepts
 - Hands-on exercise creation and assessment
 - Multi-language support (Java, JavaScript, Python)
@@ -363,9 +363,9 @@ Detailed instructions for AI behavior, patterns, and responses
 
 These custom modes are designed for progressive skill building:
 
-1. **Day 1**: Use `@training-instructor` for foundational concepts
-2. **Day 2**: Apply `@spring-boot-expert` and `@selenium-expert` for hands-on development  
-3. **Day 3**: Leverage `@sdlc-modes` for complete development workflows
+1. **Morning**: Use `@training-instructor` for foundational concepts
+2. **Afternoon**: Apply `@spring-boot-expert` and `@selenium-expert` for hands-on development
+3. **Advanced**: Leverage `@sdlc-modes` for complete development workflows
 
 ### Best Learning Practices
 

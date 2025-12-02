@@ -1,6 +1,6 @@
 # GitHub Copilot Interface and Basic Usage 🎯
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 This guide provides hands-on exercises demonstrating GitHub Copilot's core interface features using Java examples. Perfect for understanding how to effectively interact with Copilot's suggestions and leverage context-aware code completion.
 
@@ -16,7 +16,7 @@ By completing these exercises, you will understand:
 ## 🔧 Setup Requirements
 
 - VS Code with GitHub Copilot extension enabled
-- Java Development Kit (JDK 17 or higher)
+- Java Development Kit (JDK 21 or higher)
 - Maven build tool
 - Access to the task-manager project in this repository
 - **Foundation classes are pre-created** for immediate hands-on practice

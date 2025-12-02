@@ -1,6 +1,6 @@
 # GitHub Copilot Context Variables (Hash Context)
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Context variables (prefixed with `#`) allow you to provide specific information to GitHub Copilot Chat, making responses more accurate and relevant to your current workspace and situation.
 

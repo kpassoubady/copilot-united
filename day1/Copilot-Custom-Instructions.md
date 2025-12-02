@@ -1,6 +1,6 @@
 # GitHub Copilot Custom Instructions
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 GitHub Copilot Custom Instructions allow you to personalize AI responses to match your coding style, team standards, and project requirements. These instructions help ensure consistency and relevance across all your Copilot interactions.
 

@@ -1,6 +1,6 @@
 # GitHub Copilot Agents 🤖
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 GitHub Copilot Agents are specialized AI assistants that extend beyond the standard chat participants. They provide domain-specific expertise, custom workflows, and enhanced capabilities for specific development scenarios.
 
@@ -16,9 +16,10 @@ Agents are intelligent assistants that can:
 
 | **Built-in Agents** | **Custom Agents** |
 |---------------------|-------------------|
-| @github, @vscode, @terminal | Organization-specific agents |
+| @workspace, @github, @vscode, @terminal | Organization-specific agents |
 | Pre-trained on common tasks | Trained on internal codebases |
 | Available to all users | Enterprise/team exclusive |
+| Integrated with model picker | Custom model selection |
 
 ## 🚀 Getting Started with Agents
 

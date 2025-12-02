@@ -130,4 +130,4 @@ By the end of Day 1, you should be comfortable with:
 - ✅ Basic entity and service class generation
 - ✅ Simple unit test creation with Copilot assistance
 
-**Next**: Day 2 will focus on advanced context usage and hash context variables for building the web layer.
+**Next**: The afternoon session will focus on advanced context usage and hash context variables for building the web layer.

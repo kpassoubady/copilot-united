@@ -1,6 +1,6 @@
 # GitHub Copilot Tool Sets 🧰
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Tool Sets extend GitHub Copilot's capabilities by integrating external tools, APIs, and services directly into your AI workflow. They enable Copilot to perform actions beyond code generation, such as running tests, deploying applications, and interacting with databases.
 

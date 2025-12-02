@@ -1,6 +1,6 @@
 # GitHub Copilot Built-In Chat Modes 🎯
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 VS Code comes with three built-in chat modes that provide different optimizations for common development scenarios. These modes are available by default and can be switched between at any time in the Chat view.
 

@@ -1,6 +1,6 @@
 # GitHub Copilot VS Code Settings Reference
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Comprehensive reference for all GitHub Copilot settings in Visual Studio Code, organized by category with practical examples and use cases.
 

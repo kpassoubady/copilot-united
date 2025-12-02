@@ -1,6 +1,6 @@
 # GitHub Copilot Slash Commands
 
-**Last Updated: September 2025**
+**Last Updated: December 2025**
 
 Slash commands in GitHub Copilot Chat provide quick access to specialized AI capabilities. These commands help you perform specific development tasks efficiently within the conversational interface.
 
