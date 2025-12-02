@@ -25,6 +25,7 @@
 | IDE Integration | [📄 View](1.4-Copilot-IDE-Integration.md) |
 | Keyboard Shortcuts | [📄 View](Copilot-ShortCuts.md) |
 | Interface Basics | [📄 View](3-1-Copilot-Interface-Basic-Usage.md) |
+| Inline Chat | [📄 View](Copilot-Inline-Chat.md) |
 | VS Code Settings | [📄 View](Copilot-VS-Code-Settings-Reference.md) |
 | Setup Commands | [📄 View](2.1-GitHub-Copilot-Setup-Commands.md) |
 
@@ -48,6 +49,7 @@
 | Chat Cookbook | [📄 View](Copilot-Chat-Cookbook.md) |
 | Slash Commands | [📄 View](Copilot-Slash-Commands.md) |
 | Built-in Modes | [📄 View](Copilot-Built-In-Modes.md) |
+| Debugging with Copilot | [📄 View](Copilot-Debugging.md) |
 
 **Hands-on Exercises:**
 - [Java Track: Backend Setup](../java-exercise/1-setup/day1-backend-setup.md) | [Python Track](../python-exercise/1-setup/day1-backend-setup.md)
@@ -85,6 +87,7 @@
 | Topic | Resource |
 |-------|----------|
 | Editing Sessions | [📄 View](Copilot-Editing-Session.md) |
+| Multi-File Edits | [📄 View](Copilot-Edits-Multi-File.md) |
 | Custom Chat Modes | [📄 View](Copilot-Custom-Chat-Modes.md) |
 | Prompt Files | [📄 View](Copilot-Prompt-Files.md) |
 
@@ -105,6 +108,7 @@
 |-------|----------|
 | Custom Instructions | [📄 View](Copilot-Custom-Instructions.md) |
 | Copilot Limitations | [📄 View](Copilot-Limitations.md) |
+| Ethics & Security | [📄 View](Copilot-Ethics-Security.md) |
 | Copilot Agents | [📄 View](Copilot-Agents.md) |
 | Tool Sets | [📄 View](Copilot-Tool-Sets.md) |
 | Auto-Commit Setup | [📄 View](Copilot-Auto-Commit-Setup.md) |
@@ -123,7 +127,10 @@
 
 ### 7. Wrap-up & Documentation (35 min)
 
-- Documentation generation patterns
+| Topic | Resource |
+|-------|----------|
+| Documentation Generation | [📄 View](Copilot-Documentation-Generation.md) |
+
 - Personal Copilot workflow blueprint
 - Q&A and course completion
 
