@@ -1,34 +1,38 @@
-# GitHub Copilot features in VS Code vs IntelliJ IDEA
+# GitHub Copilot Features: VS Code vs IntelliJ IDEA (December 2025)
 
 ✅ = Strong support  
-⚠️ = Partial / limited  
-❌ = Not available (or lagging)
+⚠️ = Partial / limited / preview  
+❌ = Not available
 
-## GitHub Copilot Feature Matrix (VS Code vs IntelliJ IDEA)
+## GitHub Copilot Feature Matrix
 
-| Feature                                                        | VS Code | IntelliJ IDEA    |
-| -------------------------------------------------------------- | ------- | ---------------- |
-| Inline Code Suggestions (multi-line, blocks)                   | ✅      | ✅               |
-| Copilot Chat (ask in natural language)                         | ✅      | ✅               |
-| Slash Commands (/fix, /tests, /explain, etc.)                  | ✅      | ⚠️               |
-| Model Picker (switch between GPT-4, Claude, Gemini, etc.)      | ✅      | ⚠️               |
-| Workspace-wide / Multi-file Context Attachments                | ✅      | ⚠️               |
-| Inline Chat Everywhere (editor, terminal, notebooks, etc.)     | ✅      | ⚠️               |
-| Code Review (pre-PR, self-review)                              | ✅      | ✅ (added later) |
-| Commit Message Generation (conventional commits, custom rules) | ✅      | ✅               |
-| Refactoring Awareness (deep project context)                   | ⚠️      | ✅               |
-| Java / Kotlin / Scala Ecosystem Strength                       | ⚠️      | ✅               |
-| Feature Rollout Speed (new features first)                     | ✅      | ⚠️               |
-| Customization of Copilot UX (verbosity, context sources, etc.) | ✅      | ⚠️               |
-| AI-powered Documentation Generation                            | ✅      | ✅               |
-| Code Explanation with Context                                  | ✅      | ✅               |
-| Multi-language Support in Single Chat                          | ✅      | ✅               |
-| Enterprise Admin Controls                                      | ✅      | ✅               |
+| Feature                                                        | VS Code | IntelliJ IDEA |
+| -------------------------------------------------------------- | ------- | ------------- |
+| Inline Code Suggestions (multi-line, blocks)                   | ✅      | ✅            |
+| Copilot Chat (natural language interface)                      | ✅      | ✅            |
+| Slash Commands (`/fix`, `/tests`, `/explain`, `/doc`)          | ✅      | ✅            |
+| Model Picker (GPT-4o, Claude 3.5, Gemini)                      | ✅      | ✅            |
+| Workspace-wide / Multi-file Context                            | ✅      | ✅            |
+| File Attachments in Chat                                       | ✅      | ✅            |
+| Inline Chat (editor)                                           | ✅      | ✅            |
+| Terminal Chat Integration                                      | ✅      | ⚠️            |
+| Copilot Edits (multi-file agent editing)                       | ✅      | ⚠️            |
+| Code Review (pre-PR suggestions)                               | ✅      | ✅            |
+| Commit Message Generation                                      | ✅      | ✅            |
+| Custom Instructions (`.github/copilot-instructions.md`)        | ✅      | ✅            |
+| Refactoring Awareness (deep project context)                   | ⚠️      | ✅            |
+| Java / Kotlin / Scala Ecosystem Strength                       | ⚠️      | ✅            |
+| Feature Rollout Speed (new features first)                     | ✅      | ⚠️            |
+| AI-powered Documentation Generation                            | ✅      | ✅            |
+| Code Explanation with Context                                  | ✅      | ✅            |
+| Multi-language Support in Single Chat                          | ✅      | ✅            |
+| Enterprise Admin Controls                                      | ✅      | ✅            |
+| Next Edit Suggestions (predictive edits)                       | ✅      | ⚠️            |
 
-> Note: IntelliJ support for some features (marked ⚠️) can be limited or version-dependent — availability may vary by the Copilot plugin version and JetBrains IDE release.
+> **Note (December 2025)**: IntelliJ has achieved near feature parity with VS Code. Features marked ⚠️ are either in preview or have slightly different implementations. Check your plugin version for the latest capabilities.
 
 ## 🔑 Takeaway
 
-**VS Code:** Best for teams that want the newest Copilot features, rapid updates, multi-model support, and rich chat UX.
+**VS Code:** Best for teams wanting bleeding-edge Copilot features, multi-file agent editing (Copilot Edits), terminal integration, and rapid feature updates.
 
-**IntelliJ IDEA:** Best for JVM-heavy projects (Java, Kotlin, Scala) where deep refactoring, type awareness, and IDE intelligence give Copilot more precise suggestions
+**IntelliJ IDEA:** Best for JVM projects (Java, Kotlin, Scala) where deep refactoring awareness, type inference, and IDE-native intelligence enhance Copilot's suggestions. Feature gap has narrowed significantly.

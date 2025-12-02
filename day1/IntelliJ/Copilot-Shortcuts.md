@@ -1,29 +1,39 @@
-# GitHub Copilot — IntelliJ Keyboard Shortcuts (macOS & Windows)
+# GitHub Copilot — IntelliJ Keyboard Shortcuts (December 2025)
 
-This file lists common and recommended keyboard shortcuts for using GitHub Copilot inside JetBrains IntelliJ IDEA. Exact defaults can vary by Copilot plugin version, JetBrains IDE release, and your active keymap. Use the "How to verify / change" section to confirm or customize these shortcuts in your environment.
+This file lists keyboard shortcuts for using GitHub Copilot in JetBrains IntelliJ IDEA. Shortcuts may vary by plugin version and your keymap configuration.
 
-✅ Quick tip: Use "Find Action" to run any Copilot action without a keybinding: macOS: ⌘⇧A (Cmd+Shift+A) — Windows/Linux: Ctrl+Shift+A
+✅ **Quick tip**: Use "Find Action" to run any Copilot action: **⌘⇧A** (macOS) or **Ctrl+Shift+A** (Windows/Linux)
 
-## Recommended shortcuts (examples)
+## Default Shortcuts
 
-Note: the table below shows recommended (and commonly used) keybindings. Marked as "Recommended" because defaults may differ; verify in your Keymap and remap if you prefer.
+| Action                                          | macOS                    | Windows/Linux             |
+|-------------------------------------------------|--------------------------|---------------------------|
+| **Accept inline suggestion**                    | Tab                      | Tab                       |
+| **Accept word** (partial accept)                | ⌘→ (Cmd+Right)           | Ctrl+Right                |
+| **Dismiss suggestion**                          | Esc                      | Esc                       |
+| **Next suggestion**                             | ⌥] (Option+])            | Alt+]                     |
+| **Previous suggestion**                         | ⌥[ (Option+[)            | Alt+[                     |
+| **Open Copilot Chat**                           | ⌃⏎ (Ctrl+Enter) in editor | Ctrl+Enter in editor     |
+| **Inline Chat** (ask about selection)           | ⌘I (Cmd+I)               | Ctrl+I                    |
+| **Show Copilot completions panel**              | ⌥\ (Option+\)            | Alt+\                     |
+| **Toggle Copilot suggestions**                  | Via Settings/Preferences | Via Settings              |
 
-| Action / Command                                | macOS (Recommended)      | Windows/Linux (Recommended) |
-|-------------------------------------------------|---------------------------|------------------------------|
-| Accept inline suggestion                        | Tab or →                 | Tab or →                    |
-| Accept suggestion and move to next              | ⌘↩ (Cmd+Enter) *(optional)* | Ctrl+Enter *(optional)*     |
-| Dismiss/Hide suggestion                         | Esc                      | Esc                         |
-| See next suggestion (when multiple available)   | ⌥] (Option + ])          | Alt + ]                     |
-| See previous suggestion                         | ⌥[ (Option + [)          | Alt + [                     |
-| Open Copilot Chat / Focus Chat window           | ⌃⌘C (Ctrl+Cmd+C) *(example)* | Ctrl+Alt+C *(example)*      |
-| Toggle inline suggestions on/off                | ⌃⌥I (Ctrl+Option+I) *(example)* | Ctrl+Alt+I *(example)*      |
-| Show Copilot tool window / panel                | ⌘6 (Cmd+6) *(example)*   | Ctrl+6 *(example)*          |
-| Explain selection / Ask Copilot about selection | ⌃⌘E (Ctrl+Cmd+E) *(example)* | Ctrl+Alt+E *(example)*      |
-| Generate tests (Copilot-assisted)               | ⌥⌘T (Option+Cmd+T) *(example)* | Alt+Ctrl+T *(example)*      |
+## Chat-Specific Actions
 
-A few notes on the table above:
-- "Accept inline suggestion" is commonly bound to Tab or the Right Arrow key in many editors/IDE keymaps. If Tab is used for indentation in your keymap, choose a different binding.
-- Actions marked "*(example)*" are suggested mappings that avoid colliding with common IntelliJ defaults; they are not guaranteed defaults for the plugin — please verify in your Keymap.
+| Action                                          | macOS                    | Windows/Linux             |
+|-------------------------------------------------|--------------------------|---------------------------|
+| **Open Chat tool window**                       | Find Action → "Copilot Chat" | Find Action → "Copilot Chat" |
+| **Submit chat message**                         | ⏎ (Enter)                | Enter                     |
+| **New line in chat**                            | ⇧⏎ (Shift+Enter)         | Shift+Enter               |
+| **Clear chat history**                          | Click clear icon         | Click clear icon          |
+
+## Context Menu Actions
+
+Right-click on selected code to access:
+- **Explain This** — Get explanation of selected code
+- **Generate Tests** — Create unit tests for selection
+- **Fix This** — Suggest fixes for issues
+- **Generate Docs** — Add documentation comments
 
 ## How to verify or change Copilot shortcuts in IntelliJ
 
@@ -50,8 +60,7 @@ A few notes on the table above:
 
 ## Troubleshooting
 
-- If an action doesn't appear in the Keymap search, confirm the GitHub Copilot plugin is installed and enabled: Preferences → Plugins → search for "GitHub Copilot".
-- If inline suggestions don't appear, check: Preferences → GitHub Copilot (or the plugin settings) → ensure inline suggestions are enabled for the current file type.
-- Some Copilot features (chat, explain, test generation) may require a paid Copilot or Copilot Chat subscription — check your account and plugin notices.
-
-
+- **Plugin not found**: Confirm GitHub Copilot plugin is installed: Preferences → Plugins → search "GitHub Copilot"
+- **No suggestions appearing**: Check Preferences → GitHub Copilot → ensure suggestions are enabled for your file type
+- **Chat not working**: Verify you're signed in to GitHub and have an active Copilot subscription (Individual, Business, or Enterprise)
+- **Shortcuts not working**: Check for keymap conflicts in Preferences → Keymap → search "Copilot"

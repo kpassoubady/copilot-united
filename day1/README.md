@@ -1,151 +1,154 @@
-# Day 1: GitHub Copilot Foundation & Backend Development
+# GitHub Copilot - 1 Day Course Materials
 
-**Focus**: Interface Mastery & Service Layer Implementation
-
-**Tracks**: Java (Spring Boot) or Python (FastAPI) — choose one based on your setup
-
-## 📚 Learning Materials
-
-### Core GitHub Copilot Basics
-
-- [GitHub Copilot Essentials](GitHub-Copilot-Day1-Essentials.md) - Day 1 focused techniques and tips
-- [Setup Guide](Copilot-Setup-Guide.md) - Installation and configuration
-- [Keyboard Shortcuts](Copilot-ShortCuts.md) - Essential shortcuts for productivity
-- [Copilot Limitations](Copilot-Limitations.md) - Understanding boundaries and best practices
-
-### Interface & Commands
-
-- [Slash Commands](Copilot-Slash-Commands.md) - /generate, /fix, /explain, /tests commands
-- [Built-in Modes](Copilot-Built-In-Modes.md) - Chat modes for different scenarios
-- [Chat Participants](Copilot-Chat-Participants.md) - @workspace basics
-- [Chat Cookbook](Copilot-Chat-Cookbook.md) - Common chat patterns and examples
-
-### Configuration & Settings
-
-- [VS Code Settings Reference](Copilot-VS-Code-Settings-Reference.md) - Copilot configuration options
-- [Disable Copilot](Disable-Copilot.md) - Temporary disabling when needed
-
-## 🎯 Key Learning Activities
-
-### Foundation Building
-
-- **Setup Verification** - [Java Track Setup](../java-exercise/1-setup/day1-backend-setup.md) | [Python Track Setup](../python-exercise/1-setup/day1-backend-setup.md)
-- **Interface Mastery** - [Copilot Interface Basics](3-1-Copilot-Interface-Basic-Usage.md)
-- **Backend Development** - [Java Track](../java-exercise/2-breakout/2-Day1-Session2-Services-Business-Logic.md) | Python Track (coming soon)
-- **Knowledge Assessment** - Interface, shortcuts, and basic commands
-
-### Advanced Skills Development
-
-- **Code Completion Patterns** - Advanced acceptance and navigation strategies
-- **Slash Commands Mastery** - Deep dive into /generate, /fix, /explain, /tests
-- **Service Layer Implementation** - Complete backend with comprehensive unit tests
-- **Student Demonstrations** - Showcase different Copilot techniques and workflows
-
-## 🛠️ Technical Focus
-
-### Spring Boot Backend Development
-
-- **Entity Creation**: JPA entities with validation using Copilot assistance
-- **Repository Layer**: Spring Data repositories with custom queries
-- **Service Layer**: Business logic implementation with error handling
-- **Unit Testing**: JUnit 5 tests generated with /tests command
-
-### GitHub Copilot Skills Developed
-
-- ✅ Basic code completion acceptance and navigation
-- ✅ Essential slash commands (/generate, /explain, /fix, /tests)
-- ✅ Comment-driven development patterns
-- ✅ Interface familiarity and productivity shortcuts
-- ✅ Quality assurance through generated testing
-
-## 🎯 Success Criteria
-
-By end of Day 1, students will:
-
-- Navigate Copilot interface confidently
-- Use keyboard shortcuts effectively
-- Generate backend code with proper validation
-- Create unit tests using Copilot assistance
-- Understand Copilot's capabilities and limitations
-- Build working service layer for expense management
-
-## 📁 Resources
-
-- **Images**: Visual references in [images/](images/) folder
-- **Exercise Files**: [Java Track](../java-exercise/) | [Python Track](../python-exercise/)  
-- **Setup Scripts**: Day-specific setup verification
-- **Project Code**: Located in [../../project1/task-manager/](../project1/task-manager/)
+**Duration**: 8 hours | **Tracks**: Java (Spring Boot) or Python (FastAPI)
 
 ---
 
-## Advanced Context & Web Layer Development
+## ☀️ MORNING SESSION
 
-**Focus**: Hash Context Variables & Frontend Implementation
+### 1. Foundations: Generative AI + Tools Landscape (30 min)
 
-## 📚 Learning Materials (Advanced)
+| Topic | Resource |
+|-------|----------|
+| GitHub Copilot Overview | [📄 View](1.0-GitHub-Copilot-Overview.md) |
+| AI-Powered Coding Capabilities | [📄 View](1.1-AI-Powered%20Coding%20Assistant%20Capabilities.md) |
+| Developer Productivity | [📄 View](1.2-How%20Copilot%20Enhances%20Developer%20Productivity.md) |
+| AI Tools Comparison | [📄 View](1.3-Comparison%20of%20AI%20tools.md) |
 
-### Advanced Context Mastery
+---
 
-- [Context Mastery Guide](GitHub-Copilot-Day2-Context-Mastery.md) - Advanced techniques and strategies
-- [Hash Context Variables](Copilot-Hash-Context.md) - #file, #selection, #codebase, #editor usage
-- [Workspace Context](Copilot-Workspace-Context.md) - Understanding workspace-wide context
-- [Editing Sessions](Copilot-Editing-Session.md) - Managing multi-file editing workflows
+### 2. Copilot Setup & Interface Mastery (45 min)
 
-### Advanced Chat Features
+| Topic | Resource |
+|-------|----------|
+| Setup Guide | [📄 View](Copilot-Setup-Guide.md) |
+| IDE Integration | [📄 View](1.4-Copilot-IDE-Integration.md) |
+| Keyboard Shortcuts | [📄 View](Copilot-ShortCuts.md) |
+| Interface Basics | [📄 View](3-1-Copilot-Interface-Basic-Usage.md) |
+| VS Code Settings | [📄 View](Copilot-VS-Code-Settings-Reference.md) |
+| Setup Commands | [📄 View](2.1-GitHub-Copilot-Setup-Commands.md) |
 
-- [Custom Chat Modes](Copilot-Custom-Chat-Modes.md) - Creating specialized chat patterns
-- [Custom Instructions](Copilot-Custom-Instructions.md) - Personalizing Copilot behavior
-- [Prompt Files](Copilot-Prompt-Files.md) - Reusable prompt patterns and templates
+**IntelliJ Users:**
+- [IntelliJ Shortcuts](IntelliJ/Copilot-Shortcuts.md)
+- [VS Code vs IntelliJ Comparison](IntelliJ/Capability-Comparison.md)
+- [Feature Support Matrix](IntelliJ/Feature-Support.md)
 
-## 🎯 Key Learning Activities (Advanced)
+---
 
-### Context Mastery Foundation
+### ☕ Kahoot 1 (15 min) + Morning Break (15 min)
 
-- **Setup Verification** - [Java Frontend Setup](../java-exercise/1-setup/day1-frontend-setup.md) | Python Frontend Setup (coming soon)
-- **Hash Context Introduction** - #file, #selection, #codebase patterns and strategies
-- **Web Layer Development** - [Java Track](../java-exercise/2-breakout/4-Day1-Session-Web-Interface-Templates.md) | Python Track (coming soon)
-- **Knowledge Assessment** - Hash context variables and multi-context strategies
+---
 
-### Advanced Context Applications
+### 3. Breakout 1: Backend Modeling with Copilot (90 min)
 
-- **Terminal Context** - `#terminalSelection`, `#terminalLastCommand` for debugging
-- **Complete Web Implementation** - Thymeleaf templates, AJAX, and responsive design
-- **Student Demonstrations** - Advanced context usage and creative problem-solving
-- **Context Optimization** - Best practices for context selection and combination
+| Topic | Resource |
+|-------|----------|
+| Chat Interface Exercise | [📄 View](3-2-Copilot-Chat-Interface-Exercise.md) |
+| Code Generation Exercises | [📄 View](3-3-Code-Generation-Practical-Exercises.md) |
+| Chat Cookbook | [📄 View](Copilot-Chat-Cookbook.md) |
+| Slash Commands | [📄 View](Copilot-Slash-Commands.md) |
+| Built-in Modes | [📄 View](Copilot-Built-In-Modes.md) |
 
-## 🛠️ Technical Focus (Web Layer)
+**Hands-on Exercises:**
+- [Java Track: Backend Setup](../java-exercise/1-setup/day1-backend-setup.md) | [Python Track](../python-exercise/1-setup/day1-backend-setup.md)
+- [Java Track: Entities & Repositories](../java-exercise/2-breakout/1-Day1-Session1-Entities-Repositories.md) | Python Track (coming soon)
+- [Java Track: Services & Business Logic](../java-exercise/2-breakout/2-Day1-Session2-Services-Business-Logic.md) | Python Track (coming soon)
 
-- **REST Controllers**: API endpoints using #codebase context for consistency
-- **Thymeleaf Templates**: Frontend generation with #file references to backend
-- **AJAX Integration**: Dynamic functionality with contextual pattern matching
-- **Error Handling**: Cross-layer error patterns using #sym context
+---
 
-## 🧠 Context Strategy Mastery
+### 🍽️ Lunch Break (45 min)
 
-### Layer Building Approach
+---
 
-1. **Broad Context**: Start with #codebase for architectural understanding
-2. **Focused Context**: Narrow to #file for specific implementation details
-3. **Targeted Context**: Use #selection for precise modifications
-4. **Symbol Context**: Apply #sym for cross-file consistency and refactoring
+## 🌙 AFTERNOON SESSION
 
-### Multi-Context Combinations
+### 4. Copilot Chat & Context Mastery (45 min)
 
-- `#codebase #file:ExpenseService.java` - Create controller following service patterns
-- `#selection #file:ExpenseController.java` - Refactor with existing error handling
-- `#editor #codebase` - Add features following project-wide patterns
+| Topic | Resource |
+|-------|----------|
+| Hash Context Variables | [📄 View](Copilot-Hash-Context.md) |
+| Workspace Context | [📄 View](Copilot-Workspace-Context.md) |
+| Chat Participants | [📄 View](Copilot-Chat-Participants.md) |
+| Day 1 Essentials | [📄 View](GitHub-Copilot-Day1-Essentials.md) |
 
-## 🎯 Advanced Skills Developed
+**Context Variables Quick Reference:**
+- `#file` - Reference specific files
+- `#selection` - Use selected code as context
+- `#codebase` - Project-wide context
+- `#editor` - Current editor content
+- `#sym` - Symbol-based references
 
-- ✅ Hash context variables (#file, #selection, #codebase, #editor)
-- ✅ Symbol-based context (#sym) for refactoring and consistency
-- ✅ Multi-agent workflows (@workspace, @terminal)
-- ✅ Cross-file consistency patterns and maintenance
-- ✅ Advanced slash command combinations with context
-- ✅ Progressive context building through conversations
+---
 
-## 📁 Additional Resources (Advanced)
+### 5. Breakout 2: Web Layer & APIs (90 min)
 
-- **Template Samples**: Thymeleaf template examples with Bootstrap integration
-- **AJAX Patterns**: Dynamic frontend interaction examples
-- **Multi-File Workflows**: Cross-layer consistency demonstration files
+| Topic | Resource |
+|-------|----------|
+| Editing Sessions | [📄 View](Copilot-Editing-Session.md) |
+| Custom Chat Modes | [📄 View](Copilot-Custom-Chat-Modes.md) |
+| Prompt Files | [📄 View](Copilot-Prompt-Files.md) |
+
+**Hands-on Exercises:**
+- [Java Track: Frontend Setup](../java-exercise/1-setup/day1-frontend-setup.md) | Python Track (coming soon)
+- [Java Track: REST APIs & Controllers](../java-exercise/2-breakout/3-Day1-Session-REST-APIs-Controllers.md) | Python Track (coming soon)
+- [Java Track: Web Interface & Templates](../java-exercise/2-breakout/4-Day1-Session-Web-Interface-Templates.md) | Python Track (coming soon)
+
+---
+
+### ☕ Afternoon Break (15 min) + Kahoot 2 (15 min)
+
+---
+
+### 6. Efficiency & Advanced Usage (45 min)
+
+| Topic | Resource |
+|-------|----------|
+| Custom Instructions | [📄 View](Copilot-Custom-Instructions.md) |
+| Copilot Limitations | [📄 View](Copilot-Limitations.md) |
+| Copilot Agents | [📄 View](Copilot-Agents.md) |
+| Tool Sets | [📄 View](Copilot-Tool-Sets.md) |
+| Auto-Commit Setup | [📄 View](Copilot-Auto-Commit-Setup.md) |
+
+---
+
+### 6a. Troubleshooting and Recovery (15 min)
+
+| Topic | Resource |
+|-------|----------|
+| Copilot Logs | [📄 View](VS-Code-GitHub-Copilot-Logs.md) |
+| Restore Points | [📄 View](VS-Code-Restore-Points.md) |
+| Disable Copilot | [📄 View](Disable-Copilot.md) |
+
+---
+
+### 7. Wrap-up & Documentation (35 min)
+
+- Documentation generation patterns
+- Personal Copilot workflow blueprint
+- Q&A and course completion
+
+---
+
+## 📁 Quick Links
+
+| Category | Links |
+|----------|-------|
+| **Exercise Files** | [Java Track](../java-exercise/) \| [Python Track](../python-exercise/) |
+| **Project Code** | [Java: project1/task-manager](../project1/task-manager/) \| [Python: project2/task-manager](../project2/task-manager/) |
+| **Images** | [images/](images/) |
+| **IntelliJ Resources** | [IntelliJ/](IntelliJ/) |
+
+---
+
+## ✅ End of Day Checklist
+
+By end of day, students will have:
+
+- ✅ Configured GitHub Copilot in their IDE
+- ✅ Mastered keyboard shortcuts and interface navigation
+- ✅ Used slash commands (`/fix`, `/tests`, `/explain`, `/doc`)
+- ✅ Applied hash context variables (`#file`, `#selection`, `#codebase`)
+- ✅ Built backend with entities, repositories, and services
+- ✅ Created REST APIs and web templates
+- ✅ Understood Copilot's capabilities and limitations
+- ✅ Learned troubleshooting and recovery techniques
