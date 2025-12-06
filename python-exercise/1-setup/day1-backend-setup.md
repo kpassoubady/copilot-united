@@ -104,6 +104,7 @@ httpx>=0.26.0
 
 # Development Tools
 python-dotenv>=1.0.0
+black>=24.9.1
 ```
 
 ### Install Dependencies

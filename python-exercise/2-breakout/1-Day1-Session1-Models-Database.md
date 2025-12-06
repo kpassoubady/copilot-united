@@ -124,6 +124,19 @@ Expertise areas:
 - Testing recommendations
 ```
 
+Check the file for any missing settings or improvements. You will see the below warning message:
+
+```
+Chat modes have been renamed to agents. Please move this file to file:///Users/kangs/projects/expense-tracker-python/.github/agents/fastapi-expert.agent.md
+```
+
+Ask Copilot to move the file to the correct location.
+
+```
+/fix Chat modes have been renamed to agents. Please move this file to file:///Users/kangs/projects/expense-tracker-python/.github/agents/fastapi-expert.agent.md
+```
+
+
 #### 🚀 Immediate Application
 
 **Test Your FastAPI Expert:**
@@ -132,6 +145,10 @@ Expertise areas:
 @workspace /chatmode fastapi-expert
 
 "Help me design the Category SQLAlchemy model with proper relationships."
+```
+
+```text
+@workspace /agents fastapi-expert "Design a SQLAlchemy Category model with id, name, and a one-to-many relationship to Product."
 ```
 
 ---

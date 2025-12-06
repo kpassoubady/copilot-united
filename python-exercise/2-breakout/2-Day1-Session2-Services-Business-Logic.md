@@ -52,7 +52,7 @@ In this session, we'll add the business logic layer that makes your expense trac
 ### 🤖 Activate FastAPI Expert Mode
 
 ```text
-@workspace /chatmode fastapi-expert
+@workspace /agents fastapi-expert
 
 "We're moving to the service layer. Help me understand best practices for exception handling in FastAPI services."
 ```
