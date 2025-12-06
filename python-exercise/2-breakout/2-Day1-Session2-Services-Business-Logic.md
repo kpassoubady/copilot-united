@@ -699,7 +699,7 @@ async def seed_database(db: AsyncSession) -> None:
 
 ### 🔧 Update main.py to Include Seeding
 
-Update `app/main.py` lifespan:
+Update `app/main.py` lifespan (note: check your method name may be different than create_tables()):
 
 ```python
 from app.seed_data import seed_database
@@ -877,6 +877,15 @@ async def db_session():
 ### 🧪 Run Everything
 
 ```bash
+python3 --version
+pip3 --version
+pip3 install --upgrade pip
+
+pip3 install pytest
+pip3 install pytest-asyncio
+pip3 install fastapi httpx
+pytest --version
+
 # Run tests
 pytest tests/ -v
 
@@ -895,6 +904,19 @@ Check logs for seeding confirmation:
   ...
 ✅ Seeding complete: 6 categories, 18 expenses
 ```
+
+Optional: 
+```bash
+brew install sqlite
+```
+Validate the sample data:
+
+```bash
+sqlite3 expense_tracker.db "SELECT * FROM categories;"
+sqlite3 expense_tracker.db "SELECT * FROM expenses LIMIT 5;"
+```
+
+You can also use the SQLite Browser or SQLite Viewer VSCode extension to view the database.
 
 ---
 
