@@ -193,6 +193,7 @@ touch tests/__init__.py
 - Debug mode setting
 - App title and version settings
 - Environment variable support with .env file
+- lru_cache decorator for cached settings
 ```
 
 **Expected file** (`app/config.py`):
@@ -235,7 +236,7 @@ settings = get_settings()
 **GitHub Copilot Prompt:**
 
 ```text
-/generate Create SQLAlchemy database configuration for FastAPI with:
+/generate Create app/database.py SQLAlchemy database configuration for FastAPI with:
 - Async SQLite engine using aiosqlite
 - Session factory with async support
 - Base class for declarative models
@@ -295,7 +296,7 @@ async def create_tables():
 **GitHub Copilot Prompt:**
 
 ```text
-/generate Create FastAPI main application file with:
+/generate Create app/main.py FastAPI main application file with:
 - FastAPI app instance with title and version from settings
 - Lifespan context manager to create tables on startup
 - Static files mounting for CSS/JS
