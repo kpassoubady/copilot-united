@@ -63,7 +63,7 @@ This intensive 1-day program focuses on mastering GitHub Copilot through practic
 
 ---
 
-## 🛠️ Project Context (Technology-Agnostic, Java-Friendly)
+## 🛠️ Project Context
 
 - Two parallel tracks share the same Copilot curriculum:
   - Java Track: Spring Boot Task Manager (H2 for dev)
