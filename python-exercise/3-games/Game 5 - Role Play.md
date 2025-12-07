@@ -31,22 +31,21 @@ Transform your breakout session into an interactive learning experience where st
 
 ### 🐛 **Scenario 1: Bug Fix Theater**
 
-**Setup**: A null pointer exception needs fixing
+**Setup**: A None reference error needs fixing
 
 **🤖 Copilot Student says:**
 
-```java
-// Fix null pointer exception
-if (user != null) {
-    return user.getName();
-}
-return "Unknown";
+```python
+# Fix None reference error
+if user is not None:
+    return user.get_name()
+return "Unknown"
 ```
 
 **👨‍💻 Senior Developer responds:**
-> "✅ Good start, but let's think about this more defensively. What if getName() also returns null? Let me suggest an improvement..."
+> "✅ Good start, but let's think about this more defensively. What if get_name() also returns None? Let me suggest an improvement..."
 
-**🎬 Learning Moment**: Discussion about defensive programming and Optional patterns
+**🎬 Learning Moment**: Discussion about defensive programming and Optional/None handling patterns
 
 ---
 
@@ -56,10 +55,9 @@ return "Unknown";
 
 **🤖 Copilot Student suggests:**
 
-```java
-public boolean validatePassword(String password) {
-    return password.length() >= 8;
-}
+```python
+def validate_password(password: str) -> bool:
+    return len(password) >= 8
 ```
 
 **👨‍💻 Senior Developer responds:**
@@ -78,12 +76,10 @@ public boolean validatePassword(String password) {
 
 **🤖 Copilot Student offers:**
 
-```java
-// Get all users and filter in memory
-List<User> allUsers = userRepository.findAll();
-return allUsers.stream()
-    .filter(user -> user.isActive())
-    .collect(Collectors.toList());
+```python
+# Get all users and filter in memory
+all_users = user_repository.find_all()
+return [user for user in all_users if user.is_active]
 ```
 
 **👨‍💻 Senior Developer reacts:**
@@ -92,7 +88,7 @@ return allUsers.stream()
 **👩‍💻 Junior Developer inquires:**
 > "So when should we filter in the database vs. in memory? How do we know if something will be slow?"
 
-**🎬 Learning Moment**: N+1 queries, database optimization, and performance thinking
+**🎬 Learning Moment**: N+1 queries, database optimization, SQLAlchemy query optimization, and performance thinking
 
 ---
 
@@ -102,12 +98,10 @@ return allUsers.stream()
 
 **🤖 Copilot Student proposes:**
 
-```java
-@Test
-public void testAdd() {
-    Calculator calc = new Calculator();
-    assertEquals(4, calc.add(2, 2));
-}
+```python
+def test_add():
+    calc = Calculator()
+    assert calc.add(2, 2) == 4
 ```
 
 **👨‍💻 Senior Developer evaluates:**
@@ -126,21 +120,20 @@ public void testAdd() {
 
 **🤖 Copilot Student creates:**
 
-```java
-@PostMapping("/users")
-public String createUser(@RequestBody Map<String, Object> userData) {
-    // Create user logic
-    return "User created successfully";
-}
+```python
+@app.post("/users")
+async def create_user(user_data: dict):
+    # Create user logic
+    return "User created successfully"
 ```
 
 **👨‍💻 Senior Developer critiques:**
-> "🤔 Several issues here: loose typing with Map, String return instead of proper response object, no validation, no error handling..."
+> "🤔 Several issues here: loose typing with dict, String return instead of proper Pydantic response model, no validation, no error handling..."
 
 **👩‍💻 Junior Developer asks:**
-> "What's wrong with using Map? And why not return a simple string message?"
+> "What's wrong with using dict? And why not return a simple string message?"
 
-**🎬 Learning Moment**: API design principles, type safety, and REST conventions
+**🎬 Learning Moment**: API design principles, Pydantic models for type safety, and REST conventions
 
 ---
 
@@ -152,20 +145,20 @@ public String createUser(@RequestBody Map<String, Object> userData) {
 
 **🤖 Copilot Student suggests:**
 
-```java
-// Convert to modern Java style
-public Optional<User> findUser(String email) {
-    return users.stream()
-        .filter(u -> u.getEmail().equals(email))
-        .findFirst();
-}
+```python
+# Convert to modern Python style
+def find_user(email: str) -> User | None:
+    return next(
+        (u for u in users if u.email == email),
+        None
+    )
 ```
 
 **Discussion Points:**
 
 - When to refactor vs. leave working code alone
 - Breaking changes and backward compatibility
-- Performance implications of streams
+- Performance implications of generators and list comprehensions
 
 ---
 
@@ -175,23 +168,21 @@ public Optional<User> findUser(String email) {
 
 **🤖 Copilot Student offers:**
 
-```java
-// Singleton pattern for database connection
-public class DatabaseManager {
-    private static DatabaseManager instance;
+```python
+# Singleton pattern for database connection
+class DatabaseManager:
+    _instance = None
     
-    public static DatabaseManager getInstance() {
-        if (instance == null) {
-            instance = new DatabaseManager();
-        }
-        return instance;
-    }
-}
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = DatabaseManager()
+        return cls._instance
 ```
 
 **Debate Topics:**
 
-- When Singleton is appropriate vs. dependency injection
+- When Singleton is appropriate vs. dependency injection (FastAPI's `Depends`)
 - Thread safety concerns
 - Testing challenges with global state
 

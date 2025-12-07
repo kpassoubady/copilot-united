@@ -4,7 +4,7 @@
 
 Write a program that scrapes all the article headlines and links from the homepage of a news website (e.g., BBC News or a similar site). Save the data into a CSV file with columns: `headline`, `url`.
 
-Why it's a good exercise: Introduces working with HTTP requests, external libraries (BeautifulSoup in Python, Jsoup in Java), and parsing messy real-world HTML.
+Why it's a good exercise: Introduces working with HTTP requests, external libraries (`requests`, `BeautifulSoup`), and parsing messy real-world HTML.
 
 ## 2. Weather Data Aggregator with Caching ☁️
 

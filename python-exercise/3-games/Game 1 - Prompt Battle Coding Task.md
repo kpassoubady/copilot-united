@@ -2,7 +2,7 @@
 
 ## Task: Write a prompt for an AI coding assistant to create the best possible solution for the following problem
 
-- Write a function in Java that takes a list of integers and returns the top 3 most frequent numbers, sorted by frequency (descending). If two numbers have the same frequency, sort them by numeric value (ascending).
+- Write a function in Python that takes a list of integers and returns the top 3 most frequent numbers, sorted by frequency (descending). If two numbers have the same frequency, sort them by numeric value (ascending).
 - Example:
   - Input: [4, 1, 2, 2, 3, 3, 3, 4, 4, 4]
   - Output: [4, 3, 2]
@@ -17,8 +17,8 @@
 - Request unit tests to validate the solution.
 - Encourage best practices in coding style and conventions.
 - Ask for a brief explanation of the approach used.
-- Specify the Java version to be used (e.g., Java 21).
-- Request the use of standard libraries where appropriate.
+- Specify the Python version to be used (e.g., Python 3.11+).
+- Request the use of standard libraries where appropriate (e.g., `collections.Counter`).
 - Encourage handling of invalid inputs gracefully.
 - Mention performance considerations for large lists 2M+ values.
 - Ask for the solution to be modular and reusable.
