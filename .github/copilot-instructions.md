@@ -2,11 +2,12 @@
 
 ## Repository Overview
 
-This is a comprehensive **1-day GitHub Copilot training** repository for building a **Personal Expense Tracker** application. The course offers **three parallel tracks** sharing the same Copilot curriculum:
+This is a comprehensive **1-day GitHub Copilot training** repository for building a **Personal Expense Tracker** application. The course offers **four parallel tracks** sharing the same Copilot curriculum:
 
 - **Java Track**: Spring Boot 3.2.3 with H2/PostgreSQL database (java-exercise/)
 - **Python Track**: FastAPI with SQLite database (python-exercise/)
-- **.NET Track**: ASP.NET Core 8.0 with SQLite/SQL Server database (dotnet-exercise/)
+- **.NET Track**: ASP.NET Core 10.0 with SQLite/SQL Server database (dotnet-exercise/)
+- **Python Data Analysis Track**: Pandas with Matplotlib/Seaborn for data analysis (python-data-analysis-exercise/)
 
 ### Directory Structure
 
@@ -16,9 +17,11 @@ This is a comprehensive **1-day GitHub Copilot training** repository for buildin
 - **python-exercise/**: Python Track - Complete FastAPI Personal Expense Tracker bootcamp (4 sessions × 45 min)
 - **dotnet-exercise/**: .NET Track - Complete ASP.NET Core Personal Expense Tracker bootcamp (4 sessions × 45 min)
 - **catalog/**: Course outline and curriculum documentation
-- **project1/**: Reference application - Spring Boot Task Manager (legacy structure)
-- **project2/**: Reference application - FastAPI Task Manager (legacy structure)
-- **movie-watchlist/**: Showcase project - Modern full-stack app with Tailwind CSS + Alpine.js (planned)
+- **project1/**: Java Track - Spring Boot Task Manager scaffold
+- **project2/**: Python Track - FastAPI Task Manager scaffold
+- **project3/**: .NET Track - ASP.NET Core Task Manager scaffold
+- **project4/**: Python Data Analysis Track - Data Analysis Pipeline scaffold
+- **python-data-analysis-exercise/**: Python Data Analysis Track - Pandas/visualization bootcamp
 - **.github/agents/**: AI agent definitions (Performance Optimization Agent)
 
 ## Architecture Patterns
@@ -42,7 +45,7 @@ This is a comprehensive **1-day GitHub Copilot training** repository for buildin
 - **Session Structure**: 4 sessions × 45 min (Models/DB → Services → REST APIs → Jinja2 UI)
 
 ### .NET Track (dotnet-exercise/)
-- **Framework**: ASP.NET Core 8.0 with Entity Framework Core 8.0
+- **Framework**: ASP.NET Core 10.0 with Entity Framework Core 9.0
 - **Project Convention**: Standard .NET solution structure with separate projects (Web, Core, Infrastructure, Tests)
 - **Configuration**: SQLite for development, SQL Server for production
 - **Frontend**: Razor Pages with Bootstrap 5.3.2 and Chart.js
@@ -50,6 +53,16 @@ This is a comprehensive **1-day GitHub Copilot training** repository for buildin
 - **Testing**: xUnit, Moq, FluentAssertions with AAA pattern
 - **Validation**: FluentValidation 11.3 for business rules
 - **Session Structure**: 4 sessions × 45 min (Models/DbContext → Services → REST APIs → Razor Pages)
+
+### Python Data Analysis Track (python-data-analysis-exercise/)
+- **Framework**: Pandas 2.0+ with Matplotlib and Seaborn for visualization
+- **Project Convention**: Jupyter notebooks and Python scripts organized by analysis type
+- **Configuration**: Virtual environment with requirements.txt
+- **Tools**: Jupyter Notebook/Lab, VS Code with Python extension
+- **Build**: Python virtual environment with pip, Jupyter server
+- **Testing**: pytest for utility functions, notebook validation
+- **Libraries**: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn
+- **Session Structure**: 3 sessions (Setup/Intro → Breakout Exercises → Interactive Games)
 
 ## Development Workflows
 
@@ -92,14 +105,32 @@ dotnet watch run
 # Alternative port: dotnet run --urls="https://localhost:5002;http://localhost:5003"
 ```
 
+### Running Data Analysis Pipeline (Python Data Analysis Track)
+```bash
+cd project4/data-pipeline
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# Run Jupyter Notebook
+jupyter notebook notebooks/
+
+# Or run a script
+python src/intro_pandas.py
+```
+
 ### Development Environment Setup
 - **Java Track**: Requires JDK 21, Maven, Git (detailed in `java-exercise/1-setup/`)
 - **Python Track**: Requires Python 3.11+ (3.12 recommended), Git (detailed in `python-exercise/1-setup/`)
-- **.NET Track**: Requires .NET 8 SDK, Git (detailed in `dotnet-exercise/1-setup/`)
+- **.NET Track**: Requires .NET 9+ SDK, Git (detailed in `dotnet-exercise/1-setup/`)
+- **Python Data Analysis Track**: Requires Python 3.9+, Jupyter, Git (detailed in `project4/install/`)
 - **IDE Extensions**: GitHub Copilot (must be authenticated before class)
   - Java: Java Extension Pack, Spring Boot Extension Pack, REST Client
-  - Python: Python Extension, Pylance, REST Client
+  - Python: Python Extension, Pylance, Jupyter, REST Client
   - .NET: C# Dev Kit, C# Extensions, REST Client
+  - Data Analysis: Python Extension, Jupyter, Data Wrangler
 - **GitHub Copilot**: Must be enabled and authenticated before class
 
 ### Documentation Generation
@@ -139,7 +170,7 @@ dotnet watch run
 ## Context Integration Points
 
 ### Cross-Project Dependencies
-- All three tracks share the same Copilot curriculum and learning objectives
+- All four tracks share the same Copilot curriculum and learning objectives
 - Course materials split into day1/ (basics) and day2/ (advanced)
 - Each track has identical session structure for consistent learning experience
 - Shared learning goals: Copilot mastery over framework-specific knowledge
@@ -163,12 +194,20 @@ dotnet watch run
 - **FluentValidation**: Fluent API for validation rules
 - **Chart.js**: Interactive charts via CDN
 
+### External Dependencies (Python Data Analysis Track)
+- **Pandas**: Data manipulation and analysis
+- **NumPy**: Numerical computing
+- **Matplotlib**: Static visualizations
+- **Seaborn**: Statistical data visualization
+- **Scikit-learn**: Machine learning utilities
+- **Jupyter**: Interactive notebook environment
+
 ## Training-Specific Guidance
 
 When generating code for this repository:
 
 1. **Maintain Educational Value**: Add comments explaining key concepts
-2. **Use Current Versions**: Stick to specified dependency versions (Spring Boot 3.2.3 for Java, Python 3.11+ for Python, .NET 8 for .NET)
+2. **Use Current Versions**: Stick to specified dependency versions (Spring Boot 3.2.3 for Java, Python 3.11+ for Python, .NET 9+ for .NET, Pandas 2.0+ for Data Analysis)
 3. **Follow Project Structure**: Respect existing package naming and directory layout
 4. **Include Error Handling**: Demonstrate proper exception handling patterns
 5. **Documentation First**: Update relevant documentation when adding features
@@ -178,11 +217,12 @@ When generating code for this repository:
 - `java-exercise/0-Java-Personal-Expense-Tracker-Breakout.md` - Java Track: Complete course overview
 - `python-exercise/0-Python-Personal-Expense-Tracker-Breakout.md` - Python Track: Complete course overview
 - `dotnet-exercise/0-DotNet-Personal-Expense-Tracker-Breakout.md` - .NET Track: Complete course overview
+- `python-data-analysis-exercise/README.md` - Python Data Analysis Track: Complete course overview
 - `catalog/GitHub Copilot - 1 Day - Personal Expense Tracker.md` - Complete course curriculum
 - `day1/README.md` - Day 1 learning materials (Copilot basics)
 - `day2/README.md` - Day 2 learning materials (Advanced Copilot)
 - `README.md` - Course structure and learning objectives
-- `.github/agents/AgentForPerformanceOptimization.agent.md` - Performance optimization agent for all three tracks
+- `.github/agents/AgentForPerformanceOptimization.agent.md` - Performance optimization agent for all four tracks
 
 ## Common Development Tasks
 
@@ -198,9 +238,10 @@ When generating code for this repository:
 
 - **Java Track**: Requires JDK 21, Maven; runs on port 8080
 - **Python Track**: Requires Python 3.11+; runs on port 8000 (uvicorn default)
-- **.NET Track**: Requires .NET 8 SDK; runs on port 5000/5001
+- **.NET Track**: Requires .NET 9+ SDK; runs on port 5000/5001
+- **Python Data Analysis Track**: Requires Python 3.9+; Jupyter on port 8888
 - **IDE Support**: VS Code (all tracks), IntelliJ IDEA (Java), PyCharm (Python), Visual Studio (.NET)
-- **Testing**: Spring Boot Test for Java, pytest for Python, xUnit for .NET
+- **Testing**: Spring Boot Test for Java, pytest for Python, xUnit for .NET, pytest for Data Analysis
 
 ## 1-Day Course Schedule Reference
 

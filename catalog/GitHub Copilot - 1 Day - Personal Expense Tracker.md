@@ -4,14 +4,16 @@
 
 **Focus**: Hands-on GitHub Copilot mastery while building a Personal Expense Tracker web app
 
-**Audience**: Working professionals (Java/Python)
+**Audience**: Working professionals (Java/Python/.NET/Data Analysis)
 
-**Tracks**: Java (Spring Boot) or Python (FastAPI) — same 1‑day flow
+**Tracks**: Java (Spring Boot), Python (FastAPI), .NET (ASP.NET Core), or Python Data Analysis (Pandas) — same 1‑day flow
 
 **Prerequisites**: IDE with GitHub Copilot enabled; basic Git. Choose one track's tooling:
 
 - Java Track: JDK 21 + Maven
 - Python Track: Python 3.11+ (3.12 recommended)
+- .NET Track: .NET 9+ SDK, Entity Framework Core tools
+- Python Data Analysis Track: Python 3.9+, Jupyter Notebook
 
 ---
 
@@ -63,13 +65,15 @@ This intensive 1-day program focuses on mastering GitHub Copilot through practic
 
 ---
 
-## 🛠️ Project Context (Technology-Agnostic, Java-Friendly)
+## 🛠️ Project Context (Technology-Agnostic)
 
-- Two parallel tracks share the same Copilot curriculum:
-  - Java Track: Spring Boot Task Manager (H2 for dev)
-  - Python Track: FastAPI Task Manager (SQLite for dev)
-- Frontend: Thymeleaf/Jinja2 templates; Bootstrap for styling
-- Tools: GitHub Copilot (VS Code/IntelliJ), REST Client (optional)
+- Four parallel tracks share the same Copilot curriculum:
+  - **Java Track**: Spring Boot Task Manager (H2 for dev)
+  - **Python Track**: FastAPI Task Manager (SQLite for dev)
+  - **.NET Track**: ASP.NET Core Task Manager (SQLite for dev)
+  - **Python Data Analysis Track**: Data Analysis Pipeline (Pandas, Matplotlib, Seaborn)
+- Frontend: Thymeleaf/Jinja2/Razor templates; Bootstrap for styling (web tracks)
+- Tools: GitHub Copilot (VS Code/IntelliJ/Visual Studio), REST Client (optional), Jupyter Notebook (data analysis)
 
 Note: The course emphasizes Copilot workflows over specific framework training.
 
@@ -87,7 +91,15 @@ Install prerequisites for your chosen track before class:
   - Windows: [proj2-install-win.md](../project2/install/proj2-install-win.md)
   - macOS: [proj2-install-mac.md](../project2/install/proj2-install-mac.md)
 
-All install links in one place: [install.md](./install.md)
+- **.NET Track** (ASP.NET Core Task Manager)
+  - Windows: [proj3-install-win.md](../project3/install/proj3-install-win.md)
+  - macOS: [proj3-install-mac.md](../project3/install/proj3-install-mac.md)
+
+- **Python Data Analysis Track** (Data Analysis Pipeline)
+  - Windows: [proj4-install-win.md](../project4/install/proj4-install-win.md)
+  - macOS: [proj4-install-mac.md](../project4/install/proj4-install-mac.md)
+
+All install links in one place: [install.md](../install.md)
 
 ---
 
