@@ -274,6 +274,7 @@ using Microsoft.EntityFrameworkCore;
 using ExpenseTracker.Web.Data;
 using ExpenseTracker.Web.Services;
 using ExpenseTracker.Web.Models;
+using ExpenseTracker.Web.DTOs;
 using Microsoft.Extensions.Logging.Abstractions;
 
 namespace ExpenseTracker.Tests.Services;

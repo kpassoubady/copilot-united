@@ -473,7 +473,11 @@ libman restore
 
 ### 🚀 Next Steps
 
-You're now ready for **Day 1 Afternoon: Session 3 - REST APIs & Controllers**!
+**Session Sequence:**
+1. **Session 3**: REST APIs & Controllers - Build API endpoints first
+2. **Session 4**: Razor Pages & Web Interface - Build the UI (uses this frontend setup)
+
+You're now ready for **Day 1 Afternoon Sessions**!
 
 The frontend setup should have taken about 5 minutes. If you encountered any issues, please resolve them before continuing.
 

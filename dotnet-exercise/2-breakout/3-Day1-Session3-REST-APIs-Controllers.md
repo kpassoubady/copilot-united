@@ -28,17 +28,20 @@ By the end of this session, you will:
 
 ### 🎯 Two Approaches
 
-**Option A: Minimal APIs** (Modern, lightweight - like FastAPI)
-- Functions mapped to routes in `Program.cs`
-- Less boilerplate, more concise
-- Great for microservices
+| Feature | **Option A: Minimal APIs** | **Option B: Controllers** |
+|---------|---------------------------|---------------------------|
+| **Style** | Modern, lightweight (like FastAPI) | Traditional MVC (like Spring Boot) |
+| **Location** | Functions in `Program.cs` | Class files in `Controllers/` |
+| **Boilerplate** | Less code, more concise | More structure, more verbose |
+| **Best For** | Microservices, small APIs | Large applications, team projects |
+| **Background** | New to .NET | Java/Spring developers |
 
-**Option B: Controllers** (Traditional MVC - like Spring Boot)
-- Class-based with attributes
-- More structure for large applications
-- Familiar to Java/Spring developers
+**📌 For This Bootcamp**: We'll follow **Option B: Controllers** as the primary approach because:
+- Better organized for enterprise applications
+- More familiar to Java/Spring developers
+- Clearer separation of concerns
 
-**Recommendation**: Choose **Controllers** for consistency with Java/Python tracks, or **Minimal APIs** for modern .NET style.
+> **Note**: Option A (Minimal APIs) is shown as an alternative reference in Step 2B. You only need to complete ONE option, not both.
 
 ---
 

@@ -380,13 +380,14 @@ public class ExpenseTrackerContext : DbContext
 
     private void SeedData(ModelBuilder modelBuilder)
     {
+        // Use fixed Guids for reproducible migrations
         var categories = new[]
         {
-            new Category { Id = Guid.NewGuid(), Name = "Food & Dining", Icon = "fas fa-utensils", Color = "#FF6384" },
-            new Category { Id = Guid.NewGuid(), Name = "Transportation", Icon = "fas fa-car", Color = "#36A2EB" },
-            new Category { Id = Guid.NewGuid(), Name = "Entertainment", Icon = "fas fa-film", Color = "#FFCE56" },
-            new Category { Id = Guid.NewGuid(), Name = "Shopping", Icon = "fas fa-shopping-cart", Color = "#4BC0C0" },
-            new Category { Id = Guid.NewGuid(), Name = "Healthcare", Icon = "fas fa-heartbeat", Color = "#9966FF" }
+            new Category { Id = Guid.Parse("a1b2c3d4-e5f6-7890-abcd-ef1234567890"), Name = "Food & Dining", Icon = "fas fa-utensils", Color = "#FF6384" },
+            new Category { Id = Guid.Parse("b2c3d4e5-f6a7-8901-bcde-f12345678901"), Name = "Transportation", Icon = "fas fa-car", Color = "#36A2EB" },
+            new Category { Id = Guid.Parse("c3d4e5f6-a7b8-9012-cdef-123456789012"), Name = "Entertainment", Icon = "fas fa-film", Color = "#FFCE56" },
+            new Category { Id = Guid.Parse("d4e5f6a7-b8c9-0123-def0-234567890123"), Name = "Shopping", Icon = "fas fa-shopping-cart", Color = "#4BC0C0" },
+            new Category { Id = Guid.Parse("e5f6a7b8-c9d0-1234-ef01-345678901234"), Name = "Healthcare", Icon = "fas fa-heartbeat", Color = "#9966FF" }
         };
 
         modelBuilder.Entity<Category>().HasData(categories);
@@ -476,6 +477,26 @@ ls -la *.db
 ## ✅ Session Verification (5 minutes)
 
 ### 🧪 Test Database Setup
+
+Create `Pages/DbTest.cshtml`:
+
+```cshtml
+@page
+@model ExpenseTracker.Web.Pages.DbTestModel
+@{
+    ViewData["Title"] = "Database Test";
+}
+
+<div class="container mt-4">
+    <h1><i class="fas fa-database"></i> Database Connection Test</h1>
+    <div class="alert alert-success">
+        <h4>✅ Database Connected Successfully!</h4>
+        <p><strong>Categories:</strong> @Model.CategoryCount</p>
+        <p><strong>Expenses:</strong> @Model.ExpenseCount</p>
+        <p><em>Test completed at: @DateTime.Now</em></p>
+    </div>
+</div>
+```
 
 Create `Pages/DbTest.cshtml.cs`:
 
