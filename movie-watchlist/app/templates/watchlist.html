@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}My Watchlist - Movie Watchlist{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+            <h1 class="text-3xl font-bold flex items-center">
+                <i class="fas fa-bookmark mr-3 text-purple-400"></i>
+                My Watchlist
+            </h1>
+            <p class="text-gray-400 mt-1">Movies you want to watch</p>
+        </div>
+        <a href="{{ url_for('index') }}" class="inline-flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors">
+            <i class="fas fa-film mr-2"></i>
+            Browse Movies
+        </a>
+    </div>
+
+    {% if watchlist %}
+    <div class="space-y-4">
+        {% for item in watchlist %}
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 overflow-hidden hover:border-purple-500/30 transition-colors">
+            <div class="flex flex-col md:flex-row">
+                <!-- Movie Poster -->
+                <div class="md:w-32 h-32 md:h-auto bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    {% if item.movie.poster_url %}
+                    <img src="{{ item.movie.poster_url }}" alt="{{ item.movie.title }}" class="w-full h-full object-cover">
+                    {% else %}
+                    <i class="fas fa-film text-3xl text-white/20"></i>
+                    {% endif %}
+                </div>
+
+                <!-- Movie Info -->
+                <div class="flex-1 p-4">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3">
+                                <a href="{{ url_for('movie_detail', movie_id=item.movie.id) }}" class="text-xl font-semibold hover:text-purple-400 transition-colors">
+                                    {{ item.movie.title }}
+                                </a>
+                                {% if item.watched %}
+                                <span class="px-2 py-0.5 bg-green-500/20 text-green-400 rounded-full text-xs flex items-center">
+                                    <i class="fas fa-check mr-1"></i>Watched
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="flex items-center gap-3 mt-1 text-sm text-gray-400">
+                                {% if item.movie.year %}
+                                <span><i class="fas fa-calendar mr-1"></i>{{ item.movie.year }}</span>
+                                {% endif %}
+                                {% if item.movie.genre %}
+                                <span class="px-2 py-0.5 bg-purple-500/20 text-purple-300 rounded-full text-xs">{{ item.movie.genre }}</span>
+                                {% endif %}
+                            </div>
+                            
+                            {% if item.user_notes %}
+                            <div class="mt-2 text-sm text-gray-400 italic">
+                                <i class="fas fa-sticky-note mr-1 text-yellow-400/60"></i>
+                                "{{ item.user_notes }}"
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <form action="{{ url_for('toggle_watched', item_id=item.id) }}" method="POST" class="inline">
+                                <button type="submit" class="px-3 py-2 rounded-lg transition-colors {% if item.watched %}bg-green-500/20 text-green-400 hover:bg-green-500/30{% else %}bg-white/10 text-gray-400 hover:bg-white/20{% endif %}" title="{% if item.watched %}Mark as unwatched{% else %}Mark as watched{% endif %}">
+                                    <i class="fas fa-{% if item.watched %}eye{% else %}eye-slash{% endif %}"></i>
+                                </button>
+                            </form>
+                            
+                            <a href="{{ url_for('movie_detail', movie_id=item.movie.id) }}" class="px-3 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors text-gray-400" title="View details">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                            
+                            <form action="{{ url_for('remove_from_watchlist', item_id=item.id) }}" method="POST" class="inline"
+                                  onsubmit="return confirm('Remove this movie from your watchlist?');">
+                                <button type="submit" class="px-3 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-lg transition-colors" title="Remove from watchlist">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Edit Notes -->
+                    <details class="mt-3">
+                        <summary class="text-sm text-purple-400 cursor-pointer hover:text-purple-300">
+                            <i class="fas fa-edit mr-1"></i>Edit notes
+                        </summary>
+                        <form action="{{ url_for('update_notes', item_id=item.id) }}" method="POST" class="mt-2 flex gap-2">
+                            <input type="text" name="user_notes" value="{{ item.user_notes or '' }}"
+                                class="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white text-sm placeholder-gray-400"
+                                placeholder="Add a personal note...">
+                            <button type="submit" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors text-sm">
+                                Save
+                            </button>
+                        </form>
+                    </details>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Stats -->
+    <div class="mt-8 p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center gap-8 text-center">
+        <div>
+            <div class="text-2xl font-bold text-purple-400">{{ watchlist|length }}</div>
+            <div class="text-sm text-gray-400">Total Movies</div>
+        </div>
+        <div class="w-px h-12 bg-white/10"></div>
+        <div>
+            <div class="text-2xl font-bold text-green-400">{{ watchlist|selectattr('watched')|list|length }}</div>
+            <div class="text-sm text-gray-400">Watched</div>
+        </div>
+        <div class="w-px h-12 bg-white/10"></div>
+        <div>
+            <div class="text-2xl font-bold text-yellow-400">{{ watchlist|rejectattr('watched')|list|length }}</div>
+            <div class="text-sm text-gray-400">To Watch</div>
+        </div>
+    </div>
+    {% else %}
+    <div class="text-center py-16 bg-white/5 rounded-xl border border-white/10">
+        <i class="fas fa-bookmark text-6xl text-gray-600 mb-4"></i>
+        <h3 class="text-xl font-semibold text-gray-400">Your watchlist is empty</h3>
+        <p class="text-gray-500 mt-2">Browse movies and add them to your watchlist!</p>
+        <a href="{{ url_for('index') }}" class="inline-flex items-center mt-4 px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors">
+            <i class="fas fa-film mr-2"></i>Browse Movies
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
