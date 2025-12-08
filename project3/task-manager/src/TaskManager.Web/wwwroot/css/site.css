@@ -1,0 +1,126 @@
+/* Task Manager Site Styles */
+
+/* Card hover effects */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Priority badges */
+.priority-low {
+    background-color: #28a745;
+}
+
+.priority-medium {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.priority-high {
+    background-color: #fd7e14;
+}
+
+.priority-critical {
+    background-color: #dc3545;
+}
+
+/* Status badges */
+.status-todo {
+    background-color: #6c757d;
+}
+
+.status-inprogress {
+    background-color: #17a2b8;
+}
+
+.status-done {
+    background-color: #28a745;
+}
+
+.status-cancelled {
+    background-color: #dc3545;
+}
+
+/* Task card styles */
+.task-card {
+    border-left: 4px solid transparent;
+}
+
+.task-card.overdue {
+    border-left-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.task-card.due-today {
+    border-left-color: #ffc107;
+    background-color: #fffbf0;
+}
+
+/* Navbar brand icon */
+.navbar-brand i {
+    font-size: 1.5rem;
+}
+
+/* Footer styles */
+footer {
+    margin-top: auto;
+}
+
+/* Quick stats */
+.quick-stats h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+/* Category color indicator */
+.category-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Form styles */
+.form-label {
+    font-weight: 500;
+}
+
+/* Table styles */
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Button group styles */
+.btn-group-action .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Animation for loading */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
