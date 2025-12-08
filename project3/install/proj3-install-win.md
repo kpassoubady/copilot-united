@@ -188,7 +188,7 @@ Build and run the application:
 dotnet build
 
 # Run the application
-dotnet run
+dotnet run --project src/TaskManager.Web
 
 # Application should start on:
 # - HTTP:  http://localhost:5000
@@ -336,7 +336,7 @@ dotnet build
 Write-Host "✓ Build OK" -ForegroundColor Green
 
 # Run application (Ctrl+C to stop)
-dotnet run
+dotnet run --project src/TaskManager.Web
 ```
 
 Expected access points after starting:
