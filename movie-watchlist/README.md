@@ -3,6 +3,9 @@
 ## Overview
 The Movie Watchlist project is a single-user application designed to help users manage their movie watchlist. It allows for manual data entry when an API key is not available and caches API responses in an SQLite database. The application is built using FastAPI for the backend and utilizes Jinja2 for server-side rendering of templates. The frontend is styled with Tailwind CSS and includes interactivity powered by Alpine.js.
 
+## Documentation
+- 📐 [Architecture Diagram](docs/architecture.md) - System architecture, components, and data flow diagrams
+
 ## Features
 - **Manual Data Entry**: Users can manually add movies to their watchlist when the API key is not present.
 - **API Integration**: Fetch movie data from external APIs when an API key is available.
