@@ -29,22 +29,22 @@
 
 ## 1. <a name='Step1:InstallNETSDK'></a>Step 1: Install .NET SDK
 
-Install .NET 8 SDK using Homebrew:
+Install .NET 9+ SDK using Homebrew:
 
 ```bash
 brew install --cask dotnet-sdk
 ```
 
-Alternatively, download from [Microsoft .NET Downloads](https://dotnet.microsoft.com/download/dotnet/8.0).
+Alternatively, download from [Microsoft .NET Downloads](https://dotnet.microsoft.com/download/dotnet/9.0).
 
 ### 1.1. <a name='VerifyInstallation'></a>Verify Installation
 
 ```bash
 dotnet --version
-# Expected: 8.0.x or higher
+# Expected: 9.0.x or higher
 
 dotnet --list-sdks
-# Should show .NET 8.0 SDK installed
+# Should show .NET 9.0+ SDK installed
 ```
 
 Add .NET tools to your PATH (if not already):
@@ -72,7 +72,7 @@ Verify installation:
 
 ```bash
 dotnet ef --version
-# Expected: Entity Framework Core .NET Command-line Tools 8.x.x
+# Expected: Entity Framework Core .NET Command-line Tools 9.x.x
 ```
 
 ## 3. <a name='Step3:InstallGit'></a>Step 3: Install Git
@@ -112,8 +112,12 @@ dotnet restore
 # Build the project
 dotnet build
 
+# Create database migrations
+dotnet ef migrations add InitialCreate --project src/TaskManager.Web
+dotnet ef database update --project src/TaskManager.Web
+
 # Run the application
-dotnet run
+dotnet run --project src/TaskManager.Web
 
 # Open http://localhost:5000 or https://localhost:5001
 ```
@@ -139,9 +143,9 @@ cd src/TaskManager.Web
 
 ```bash
 # Entity Framework Core with SQLite
-dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 9.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.0
 
 # Validation
 dotnet add package FluentValidation.AspNetCore --version 11.3.0
@@ -268,7 +272,7 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=YourStrong@Password" \
 Update packages and connection string:
 
 ```bash
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 9.0.0
 ```
 
 ```json
@@ -366,8 +370,8 @@ dotnet dev-certs https --trust
 
 ### Technology Stack Summary
 
-- **Framework**: ASP.NET Core 8.0
-- **ORM**: Entity Framework Core 8.0
+- **Framework**: ASP.NET Core 10.0
+- **ORM**: Entity Framework Core 9.0
 - **Database**: SQLite (development) / SQL Server (optional)
 - **Frontend**: Razor Pages + Bootstrap 5.3
 - **Validation**: FluentValidation

@@ -1,6 +1,6 @@
-# Task Manager - ASP.NET Core 8.0
+# Task Manager - ASP.NET Core 10.0
 
-A full-stack task management application built with ASP.NET Core 8.0 and Entity Framework Core, designed for GitHub Copilot training.
+A full-stack task management application built with ASP.NET Core 10.0 and Entity Framework Core 9.0, designed for GitHub Copilot training.
 
 ## Overview
 
@@ -69,8 +69,8 @@ task-manager/
 
 ## Technology Stack
 
-- **Framework**: ASP.NET Core 8.0
-- **ORM**: Entity Framework Core 8.0
+- **Framework**: ASP.NET Core 10.0
+- **ORM**: Entity Framework Core 9.0
 - **Database**: SQLite (development)
 - **Frontend**: Razor Pages + Bootstrap 5.3
 - **Validation**: FluentValidation
@@ -140,7 +140,7 @@ dotnet ef migrations remove --project src/TaskManager.Web
 
 ## Prerequisites
 
-- .NET 8 SDK
+- .NET 9+ SDK
 - Entity Framework Core CLI tools
 - VS Code with C# Dev Kit or Visual Studio 2022
 - GitHub Copilot extension

@@ -56,7 +56,6 @@ app.MapGet("/health", () => Results.Ok(new
     Status = "Healthy",
     Timestamp = DateTime.UtcNow
 }))
-.WithName("HealthCheck")
-.WithOpenApi();
+.WithName("HealthCheck");
 
 app.Run();

@@ -36,13 +36,13 @@
 Open PowerShell as Administrator and run:
 
 ```powershell
-winget install Microsoft.DotNet.SDK.8
+winget install Microsoft.DotNet.SDK.9
 ```
 
 ### 1.2. <a name='OptionB:ManualDownload'></a>Option B: Manual Download
 
-1. Visit [Microsoft .NET Downloads](https://dotnet.microsoft.com/download/dotnet/8.0)
-2. Download the .NET 8.0 SDK installer for Windows
+1. Visit [Microsoft .NET Downloads](https://dotnet.microsoft.com/download/dotnet/9.0)
+2. Download the .NET 9.0 SDK installer for Windows
 3. Run the installer and follow the prompts
 4. Restart your terminal after installation
 
@@ -52,10 +52,10 @@ Open a new PowerShell or Command Prompt window:
 
 ```powershell
 dotnet --version
-# Expected: 8.0.x or higher
+# Expected: 9.0.x or higher
 
 dotnet --list-sdks
-# Should show .NET 8.0 SDK installed
+# Should show .NET 9.0+ SDK installed
 ```
 
 ## 2. <a name='Step2:InstallEntityFrameworkCoreTools'></a>Step 2: Install Entity Framework Core Tools
@@ -76,7 +76,7 @@ Verify installation:
 
 ```powershell
 dotnet ef --version
-# Expected: Entity Framework Core .NET Command-line Tools 8.x.x
+# Expected: Entity Framework Core .NET Command-line Tools 9.x.x
 ```
 
 If the command is not found, ensure the .NET tools path is in your PATH:
@@ -131,8 +131,12 @@ dotnet restore
 # Build the project
 dotnet build
 
+# Create database migrations
+dotnet ef migrations add InitialCreate --project src/TaskManager.Web
+dotnet ef database update --project src/TaskManager.Web
+
 # Run the application
-dotnet run
+dotnet run --project src/TaskManager.Web
 
 # Open http://localhost:5000 or https://localhost:5001
 ```
@@ -158,9 +162,9 @@ cd src\TaskManager.Web
 
 ```powershell
 # Entity Framework Core with SQLite
-dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 9.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 9.0.0
 
 # Validation
 dotnet add package FluentValidation.AspNetCore --version 11.3.0
@@ -298,7 +302,7 @@ SQL Server LocalDB is included with Visual Studio. To use it:
 Update packages and connection string:
 
 ```powershell
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 9.0.0
 ```
 
 ```json
@@ -352,7 +356,7 @@ Expected access points after starting:
 dotnet --list-sdks
 
 # If missing, reinstall
-winget install Microsoft.DotNet.SDK.8 --force
+winget install Microsoft.DotNet.SDK.9 --force
 ```
 
 **2. EF Core Tools Not Found**
@@ -410,8 +414,8 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ### Technology Stack Summary
 
-- **Framework**: ASP.NET Core 8.0
-- **ORM**: Entity Framework Core 8.0
+- **Framework**: ASP.NET Core 10.0
+- **ORM**: Entity Framework Core 9.0
 - **Database**: SQLite (development) / SQL Server LocalDB (optional)
 - **Frontend**: Razor Pages + Bootstrap 5.3
 - **Validation**: FluentValidation
