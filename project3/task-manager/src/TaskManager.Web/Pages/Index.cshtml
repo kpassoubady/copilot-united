@@ -1,0 +1,112 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">
+        <i class="fas fa-tasks text-primary me-2"></i>
+        Welcome to Task Manager
+    </h1>
+    <p class="lead text-muted">Your .NET-powered task management solution built with GitHub Copilot</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-list fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Manage Tasks</h5>
+                <p class="card-text">Create, organize, and track your tasks with ease. Set priorities and due dates.</p>
+                <a asp-page="/Tasks/Index" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-1"></i>View Tasks
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-folder fa-3x text-success mb-3"></i>
+                <h5 class="card-title">Categories</h5>
+                <p class="card-text">Organize tasks into categories for better management and clarity.</p>
+                <a asp-page="/Categories/Index" class="btn btn-success">
+                    <i class="fas fa-arrow-right me-1"></i>View Categories
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="fas fa-code fa-3x text-info mb-3"></i>
+                <h5 class="card-title">REST API</h5>
+                <p class="card-text">Explore the REST API endpoints with interactive Swagger documentation.</p>
+                <a href="/swagger" class="btn btn-info text-white">
+                    <i class="fas fa-arrow-right me-1"></i>API Docs
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-info-circle text-primary me-2"></i>Quick Stats
+                </h5>
+                <div class="row text-center mt-3">
+                    <div class="col-md-3">
+                        <h3 class="text-primary">@Model.CategoryCount</h3>
+                        <p class="text-muted mb-0">Categories</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="text-success">@Model.TaskCount</h3>
+                        <p class="text-muted mb-0">Total Tasks</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="text-warning">@Model.PendingTaskCount</h3>
+                        <p class="text-muted mb-0">Pending Tasks</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="text-info">@Model.CompletedTaskCount</h3>
+                        <p class="text-muted mb-0">Completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <i class="fas fa-rocket me-2"></i>Technology Stack
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>ASP.NET Core 8.0</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Entity Framework Core 8.0</li>
+                            <li><i class="fas fa-check text-success me-2"></i>SQLite Database</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Razor Pages</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>FluentValidation</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Swagger/OpenAPI</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Bootstrap 5.3</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Font Awesome Icons</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

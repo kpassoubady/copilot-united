@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": ".",
+			"name": "Project 4: Data Analysis Pipeline"
+		},
+		{
+			"path": "data-pipeline",
+			"name": "Data Pipeline (Main Project)"
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "${workspaceFolder}/data-pipeline/venv/bin/python"
+	}
+}

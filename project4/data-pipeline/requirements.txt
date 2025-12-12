@@ -1,0 +1,8 @@
+pandas
+matplotlib
+seaborn
+jupyter
+radon
+flake8
+black
+pandas-profiling
