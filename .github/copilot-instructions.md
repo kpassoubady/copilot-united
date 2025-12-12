@@ -9,6 +9,8 @@ This is a comprehensive **1-day GitHub Copilot training** repository for buildin
 - **.NET Track**: ASP.NET Core 10.0 with SQLite/SQL Server database (dotnet-exercise/)
 - **Python Data Analysis Track**: Pandas with Matplotlib/Seaborn for data analysis (python-data-analysis-exercise/)
 
+**⚠️ Critical Context**: This is a **training/educational repository** where the primary goal is teaching GitHub Copilot workflows, NOT building production applications. All code generation should prioritize educational value, clarity, and demonstration of Copilot features over framework-specific optimization.
+
 ### Directory Structure
 
 - **day1/**: Session 1-2 course materials - AI foundations, Copilot setup, interface mastery, shortcuts, basic context usage
@@ -206,12 +208,71 @@ python src/intro_pandas.py
 
 When generating code for this repository:
 
-1. **Maintain Educational Value**: Add comments explaining key concepts
+1. **Maintain Educational Value**: Add comments explaining key concepts - this is a training repo
 2. **Use Current Versions**: Stick to specified dependency versions (Spring Boot 3.2.3 for Java, Python 3.11+ for Python, .NET 9+ for .NET, Pandas 2.0+ for Data Analysis)
 3. **Follow Project Structure**: Respect existing package naming and directory layout
 4. **Include Error Handling**: Demonstrate proper exception handling patterns
 5. **Documentation First**: Update relevant documentation when adding features
 6. **Track-Agnostic Copilot Skills**: Focus on Copilot workflows over framework-specific details
+
+### Educational Code Patterns
+
+**Always Include in Code Generation**:
+- Comprehensive JavaDoc/docstrings explaining purpose and usage
+- Inline comments for non-obvious logic (educational context)
+- AAA pattern (Arrange-Act-Assert) in all test cases
+- Logging statements for debugging and monitoring
+- Magic string extraction into constants
+- Security headers and best practices (even if simplified for training)
+
+**Example Educational Pattern** (Java):
+```java
+/**
+ * Service class demonstrating business logic separation.
+ * This shows the service layer pattern where controllers delegate to services.
+ */
+@Service
+public class ExpenseService {
+    private static final Logger logger = LoggerFactory.getLogger(ExpenseService.class);
+    
+    /**
+     * Creates a new expense record.
+     * Demonstrates: input validation, logging, exception handling
+     */
+    public Expense createExpense(ExpenseDTO dto) {
+        logger.info("Creating expense: {}", dto.getDescription());
+        // Implementation with educational comments
+    }
+}
+```
+
+### AI Agent Integration
+
+This repository includes specialized AI agents in `.github/agents/`:
+
+1. **AgentForPerformanceOptimization.agent.md**: Multi-language performance analysis
+   - Invoke: `@workspace /agents AgentForPerformanceOptimization`
+   - Use for: Profiling analysis, optimization recommendations, bottleneck identification
+
+2. **training-instructor.agent.md**: Educational assistant
+   - Invoke: `@workspace /agents training-instructor`
+   - Use for: Student support, concept explanations, learning guidance
+
+3. **api-testing-specialist.agent.md**: Comprehensive API testing with test heuristics
+   - Invoke: `@workspace /agents api-testing-specialist`
+   - Use for: API test case generation using VADER, BINMEN, POISED heuristics
+   - Covers: Security testing (OWASP API Top 10), data type attacks, boundary testing, HTTP method testing
+
+### Prompt File Integration
+
+Custom prompts available in `.github/prompts/`:
+
+1. **code-review.prompt.md**: Comprehensive code review with security/performance focus
+   - Use via: Copilot Chat with prompt file reference
+   - Focuses on: Security vulnerabilities, performance optimization, maintainability
+
+2. **convert-to-markdown.prompt.md**: Documentation conversion helper
+   - Use for: Converting code/content to markdown format
 
 ### Key Files for Context
 - `java-exercise/0-Java-Personal-Expense-Tracker-Breakout.md` - Java Track: Complete course overview
@@ -223,6 +284,16 @@ When generating code for this repository:
 - `day2/README.md` - Day 2 learning materials (Advanced Copilot)
 - `README.md` - Course structure and learning objectives
 - `.github/agents/AgentForPerformanceOptimization.agent.md` - Performance optimization agent for all four tracks
+- `.github/agents/training-instructor.agent.md` - Training instructor agent for educational support
+- `.github/agents/api-testing-specialist.agent.md` - API testing agent with comprehensive test heuristics (VADER, BINMEN, POISED)
+- `.github/prompts/code-review.prompt.md` - Code review template with security/performance focus
+- `docs/Test-Heuristics-Cheat-Sheet.pdf` - Ministry of Testing test heuristics reference
+
+### Project Scaffold Locations
+- `project1/task-manager/` - Java Spring Boot scaffold (Task Manager demo)
+- `project2/task-manager/` - Python FastAPI scaffold (Task Manager demo)
+- `project3/task-manager/` - .NET ASP.NET Core scaffold (Task Manager demo)
+- `project4/data-pipeline/` - Python Data Analysis scaffold
 
 ## Common Development Tasks
 
@@ -233,6 +304,44 @@ When generating code for this repository:
 - **Documentation Updates**: Follow emoji patterns and markdown structure in day1/ and day2/ folders
 - **Configuration Changes**: Update `application.properties` (Java), `.env` (Python), or `appsettings.json` (.NET)
 - **Exercise Creation**: Add new exercises to track-specific exercise directories with proper numbering
+
+## Copilot Workflow Patterns
+
+### Hash Context Usage (Critical for Training)
+This repository teaches students to use Copilot's context features:
+- `#file` - Reference specific files in chat prompts
+- `#selection` - Work with selected code in editor
+- `#codebase` - Search entire workspace for relevant context
+- `#editor` - Reference currently open file
+
+**Example Workflow**:
+```text
+"Review #file:HomeController.java for security issues and suggest improvements"
+"Optimize #selection for performance in Python"
+"Find all REST endpoints in #codebase that handle user authentication"
+```
+
+### Agent Invocation Patterns
+Students learn to invoke specialized agents:
+```text
+@workspace /agents AgentForPerformanceOptimization
+"Analyze this Java service for bottlenecks"
+
+@workspace /agents training-instructor
+"Explain the difference between @Service and @Component in Spring"
+```
+
+### Prompt File Usage
+Teach students to use custom prompts:
+```text
+Follow instructions in #file:code-review.prompt.md
+```
+
+### Multi-File Editing
+Demonstrate Copilot Edits for coordinated changes across files:
+- Entity/Model changes → Repository → Service → Controller updates
+- Configuration changes → Code updates → Test updates
+- Documentation generation across multiple markdown files
 
 ## Cross-Platform Development Notes
 
