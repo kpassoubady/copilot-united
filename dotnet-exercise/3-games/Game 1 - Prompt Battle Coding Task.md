@@ -17,7 +17,7 @@
 - Request unit tests to validate the solution.
 - Encourage best practices in coding style and conventions.
 - Ask for a brief explanation of the approach used.
-- Specify the .NET version to be used (e.g., .NET 8).
+- Specify the .NET version to be used (e.g., .NET 10).
 - Request the use of LINQ where appropriate.
 - Encourage handling of invalid inputs gracefully.
 - Mention performance considerations for large lists 2M+ values.

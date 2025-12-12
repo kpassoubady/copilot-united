@@ -30,50 +30,32 @@ By the end of this session, you will:
 
 ### 📦 Create Data Transfer Objects
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to create DTOs:**
+
+1. Create folder `DTOs/` if not exists
+2. Use Copilot Chat with workspace context:
 
 ```text
-/generate Create DTOs in DTOs/ directory:
+/generate Create DTOs in DTOs/ directory based on #file:Models/Category.cs 
+and #file:Models/Expense.cs:
 
-1. CategoryDto.cs - for reading categories:
-   - Guid Id
-   - string Name
-   - string? Description
-   - string? Icon
-   - string? Color
-   - int ExpenseCount
-   - DateTime CreatedAt
-
-2. CreateCategoryDto.cs - for creating categories:
-   - string Name (required, max 100)
-   - string? Description (max 255)
-   - string? Icon (max 50)
-   - string? Color (7 chars, regex for hex)
-   - Include Data Annotations
-
-3. UpdateCategoryDto.cs - for updating categories:
-   - Same as CreateCategoryDto
-
-4. ExpenseDto.cs - for reading expenses:
-   - Guid Id
-   - decimal Amount
-   - string Description
-   - DateTime ExpenseDate
-   - Guid CategoryId
-   - string CategoryName
-   - string? CategoryColor
-   - DateTime CreatedAt
-
-5. CreateExpenseDto.cs - for creating expenses:
-   - decimal Amount (required, > 0)
-   - string Description (required, max 255)
-   - DateTime ExpenseDate
-   - Guid CategoryId
-   - Include Data Annotations
-
-6. UpdateExpenseDto.cs - for updating expenses:
-   - Same as CreateExpenseDto
+1. CategoryDto.cs - read DTO with Id, Name, Description, Icon, Color, ExpenseCount, CreatedAt
+2. CreateCategoryDto.cs - create DTO with Name (required), Description, Icon, Color with Data Annotations
+3. UpdateCategoryDto.cs - same as Create
+4. ExpenseDto.cs - read DTO with Id, Amount, Description, ExpenseDate, CategoryId, CategoryName, CategoryColor, CreatedAt
+5. CreateExpenseDto.cs - create DTO with Amount (>0), Description, ExpenseDate, CategoryId with Data Annotations
+6. UpdateExpenseDto.cs - same as Create
 ```
+
+**🎯 Alternative Copilot Feature: Inline comment for individual DTO**
+
+Create `DTOs/CategoryDto.cs` and type:
+
+```csharp
+// Record DTO for reading Category with Id, Name, Description, Icon, Color, ExpenseCount, CreatedAt
+```
+
+Press `Tab` to accept.
 
 ---
 
@@ -81,28 +63,31 @@ By the end of this session, you will:
 
 ### 🔧 Service Interface Definitions
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to create service interfaces:**
 
 ```text
-/generate Create service interfaces in Services/ directory:
+/generate Create Services/ICategoryService.cs interface with async CRUD methods:
+- GetAllCategoriesAsync() returning IEnumerable<CategoryDto>
+- GetCategoryByIdAsync(Guid id) returning CategoryDto?
+- CreateCategoryAsync(CreateCategoryDto dto)
+- UpdateCategoryAsync(Guid id, UpdateCategoryDto dto)
+- DeleteCategoryAsync(Guid id)
+- CategoryExistsAsync(Guid id) returning bool
+Reference #file:DTOs/CategoryDto.cs for return types.
+```
 
-1. Services/ICategoryService.cs:
-   - Task<IEnumerable<CategoryDto>> GetAllCategoriesAsync()
-   - Task<CategoryDto?> GetCategoryByIdAsync(Guid id)
-   - Task<CategoryDto> CreateCategoryAsync(CreateCategoryDto dto)
-   - Task<CategoryDto> UpdateCategoryAsync(Guid id, UpdateCategoryDto dto)
-   - Task DeleteCategoryAsync(Guid id)
-   - Task<bool> CategoryExistsAsync(Guid id)
+**🎯 Copilot Feature: Generate matching interface from DTO**
 
-2. Services/IExpenseService.cs:
-   - Task<IEnumerable<ExpenseDto>> GetAllExpensesAsync()
-   - Task<IEnumerable<ExpenseDto>> GetExpensesByCategoryAsync(Guid categoryId)
-   - Task<ExpenseDto?> GetExpenseByIdAsync(Guid id)
-   - Task<ExpenseDto> CreateExpenseAsync(CreateExpenseDto dto)
-   - Task<ExpenseDto> UpdateExpenseAsync(Guid id, UpdateExpenseDto dto)
-   - Task DeleteExpenseAsync(Guid id)
-   - Task<decimal> GetTotalExpensesAsync()
-   - Task<Dictionary<string, decimal>> GetExpensesByCategoryGroupAsync()
+```text
+#file:DTOs/ExpenseDto.cs Create IExpenseService interface with CRUD operations 
+plus GetExpensesByCategoryAsync, GetTotalExpensesAsync, GetExpensesByCategoryGroupAsync
+```
+
+**🎯 Copilot Feature: `/tests` to preview interface usage**
+
+```text
+/tests #file:Services/ICategoryService.cs Generate test method signatures 
+to verify interface design is testable
 ```
 
 ---
@@ -111,33 +96,43 @@ By the end of this session, you will:
 
 ### ✅ FluentValidation Rules
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to create validators:**
 
 ```text
-/generate Create FluentValidation validators in Validators/ directory:
-
-1. CreateCategoryDtoValidator.cs:
-   - Name: Required, max length 100, must be unique (async rule checking database)
-   - Description: Optional, max length 255
-   - Color: Optional, must match hex pattern #RRGGBB
-   - Icon: Optional, max length 50
-
-2. CreateExpenseDtoValidator.cs:
-   - Amount: Required, must be > 0, max 2 decimal places
-   - Description: Required, max length 255
-   - ExpenseDate: Required, cannot be future date
-   - CategoryId: Required, must exist in database (async rule)
-
-Include proper error messages and async database checks using DbContext
+/generate Create Validators/CreateCategoryDtoValidator.cs using FluentValidation:
+- Name: Required, max 100 chars, must be unique (sync check against database)
+- Description: Optional, max 255 chars
+- Color: Optional, must match hex pattern #RRGGBB
+- Icon: Optional, max 50 chars
+Inject ExpenseTrackerContext for uniqueness validation.
+Use Must() not MustAsync() - ASP.NET validation pipeline is synchronous.
+Reference #file:DTOs/CreateCategoryDto.cs and #file:Data/ExpenseTrackerContext.cs
 ```
 
-**Example Output** (`Validators/CreateCategoryDtoValidator.cs`):
+**🎯 Copilot Feature: Pattern-based generation**
+
+After creating first validator, use it as a pattern:
+
+```text
+#file:Validators/CreateCategoryDtoValidator.cs Create similar validator 
+for CreateExpenseDto with:
+- Amount: > 0, max 2 decimal places
+- Description: Required, max 255
+- ExpenseDate: Cannot be future date
+- CategoryId: Must exist in database (use Must, not MustAsync)
+```
+
+> ⚠️ **Important**: Use `Must()` instead of `MustAsync()` for database checks. ASP.NET's automatic validation pipeline doesn't support async validators.
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Validators/CreateCategoryDtoValidator.cs</summary>
 
 ```csharp
 using FluentValidation;
 using ExpenseTracker.Web.DTOs;
 using ExpenseTracker.Web.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace ExpenseTracker.Web.Validators;
 
@@ -152,7 +147,7 @@ public class CreateCategoryDtoValidator : AbstractValidator<CreateCategoryDto>
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Category name is required")
             .MaximumLength(100).WithMessage("Category name cannot exceed 100 characters")
-            .MustAsync(BeUniqueName).WithMessage("Category name already exists");
+            .Must(BeUniqueName).WithMessage("Category name already exists");
 
         RuleFor(x => x.Description)
             .MaximumLength(255).WithMessage("Description cannot exceed 255 characters")
@@ -167,12 +162,15 @@ public class CreateCategoryDtoValidator : AbstractValidator<CreateCategoryDto>
             .When(x => !string.IsNullOrEmpty(x.Icon));
     }
 
-    private async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
+    private bool BeUniqueName(string name)
     {
-        return !await _context.Categories.AnyAsync(c => c.Name == name, cancellationToken);
+        if (string.IsNullOrWhiteSpace(name)) return true;
+        return !_context.Categories.Any(c => c.Name.ToLower() == name.ToLower());
     }
 }
 ```
+
+</details>
 
 ---
 
@@ -180,19 +178,34 @@ public class CreateCategoryDtoValidator : AbstractValidator<CreateCategoryDto>
 
 ### 🔧 ExpenseService Implementation
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to implement the service:**
 
 ```text
-/generate Create ExpenseService implementation in Services/ExpenseService.cs:
-- Implement IExpenseService interface
-- Use ExpenseTrackerContext via dependency injection
-- Map entities to DTOs using manual mapping or extension methods
-- Include proper error handling with custom exceptions
-- Use async/await patterns
+/generate Create Services/ExpenseService.cs implementing IExpenseService:
+- Inject ExpenseTrackerContext and ILogger<ExpenseService>
+- Implement all interface methods with async/await
+- Map entities to DTOs (manual mapping or extension methods)
+- Include try-catch with logging for error handling
 - Add XML documentation comments
-- Include logging (inject ILogger<ExpenseService>)
+Reference #file:Services/IExpenseService.cs and #file:Data/ExpenseTrackerContext.cs
+```
 
-Follow repository pattern, service layer best practices
+**🎯 Copilot Feature: Implement interface automatically**
+
+Create the file and type:
+
+```csharp
+public class ExpenseService : IExpenseService
+{
+    // Copilot will suggest constructor and all interface implementations
+```
+
+Press `Tab` repeatedly to accept method implementations.
+
+**🎯 Copilot Feature: `/doc` for documentation**
+
+```text
+/doc #file:Services/ExpenseService.cs Add XML documentation to all public methods
 ```
 
 **Key Methods to Generate**:
@@ -390,6 +403,11 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 ```
+
+### CategoryService.cs
+
+/generate Like ExpenseService.cs create CategoryService.cs
+
 
 ---
 

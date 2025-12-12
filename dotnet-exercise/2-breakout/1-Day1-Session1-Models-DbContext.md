@@ -27,7 +27,7 @@ By the end of this session, you will:
 
 ## 📋 Prerequisites Check (2 minutes)
 
-- ✅ .NET 8 SDK installed
+- ✅ .NET 10 SDK installed
 - ✅ Entity Framework Core tools installed
 - ✅ IDE setup (VS Code or Visual Studio)
 - ✅ GitHub Copilot enabled and authenticated
@@ -68,42 +68,24 @@ cd ExpenseTracker/src/ExpenseTracker.Web
 ls -la
 ```
 
-### 📄 Verify appsettings.json
+### 📄 Configure appsettings.json with Copilot
 
-Ensure `appsettings.json` contains database configuration:
+**🤖 Use GitHub Copilot to configure the database:**
 
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Data Source=expensetracker.db"
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning",
-      "Microsoft.EntityFrameworkCore.Database.Command": "Information"
-    }
-  }
-}
-```
+1. Open `appsettings.json` in your editor
+2. Open Copilot Chat (`Ctrl+Shift+I` / `Cmd+Shift+I`)
 
-**GitHub Copilot Prompt:**
+
+**🤖 Copilot Practice - Model Comparison:**
 
 ```text
-@workspace Check appsettings.json configuration for SQLite and suggest any missing EF Core settings for development
-```
-
-**🤖 Copilot Practice**: Try switching models and compare responses:
-
-```text
-# In Copilot Chat, try:
-/model gpt-4-turbo
+# Try different models and compare responses:
+/model gpt-4o
 "What database configuration is missing for development?"
 
-/model claude-3.5-sonnet  
+/model claude-sonnet-4  
 "Review this SQLite setup and suggest improvements"
 ```
-
 ---
 
 ## 📝 Step 1.5: Create Specialized Development Assistant (5 minutes)
@@ -124,7 +106,7 @@ Include YAML frontmatter with:
 - tools: []
 
 Specialized behavior for:
-- Project Context: ASP.NET Core 8.0, C# 12, Entity Framework Core 8.0
+- Project Context: ASP.NET Core 10.0, C# 13, Entity Framework Core 10.0
 - Database: SQLite (dev), SQL Server (prod optional)
 - Project structure: Models, Data, Services, DTOs, Validators
 
@@ -143,7 +125,7 @@ Make responses project-specific and actionable
 
 ```text
 @workspace /agents dotnet-expert
-
+#file:2.0-DotNet-Project-Overview-Personal-Expense-Tracker.md 
 "Help me design the Category entity with proper EF Core attributes and relationships."
 ```
 
@@ -153,25 +135,46 @@ Make responses project-specific and actionable
 
 ### 🏷️ Category Entity Implementation
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to create the Category entity:**
+
+1. Create new file: `Models/Category.cs`
+2. Use Copilot Chat with this prompt:
 
 ```text
-/generate Create an Entity Framework Core Category entity in Models/Category.cs with:
-- Guid Id (primary key, generated value)
-- string Name (required, max 100 characters, unique)
-- string? Description (optional, max 255 characters)
-- string? Icon (max 50 characters for FontAwesome icons like "fas fa-utensils")
-- string? Color (7 characters for hex color codes like "#FF5733", default "#6c757d")
-- DateTime CreatedAt (automatic, defaults to UtcNow)
-- DateTime UpdatedAt (automatic, updated on changes)
-- Navigation property: ICollection<Expense> Expenses (one-to-many)
-- Include Data Annotations for validation
-- Add constructors (default and parameterized)
+@workspace /newfile Create Models/Category.cs - an EF Core entity with:
+- Guid Id (primary key)
+- string Name (required, max 100 chars, unique)
+- string? Description (optional, max 255 chars)
+- string? Icon (max 50 chars for FontAwesome like "fas fa-utensils")
+- string? Color (7 chars hex color, default "#6c757d")
+- DateTime CreatedAt/UpdatedAt (auto timestamps)
+- ICollection<Expense> Expenses navigation property
+Include Data Annotations and both default + parameterized constructors.
 ```
 
-**Expected file location**: `src/ExpenseTracker.Web/Models/Category.cs`
+**🎯 Alternative: Inline Comment Prompt**
 
-**Example Output**:
+Create `Models/Category.cs` and type:
+
+```csharp
+// EF Core Category entity with Guid Id, Name (required, max 100), Description, Icon, Color (hex), 
+// CreatedAt/UpdatedAt timestamps, and Expenses navigation property. Include Data Annotations.
+```
+
+Press `Tab` to accept Copilot's multi-line suggestion.
+
+**🎯 Copilot Feature: `#selection` context**
+
+After generating, select the entire class and ask:
+
+```text
+#selection Analyze this entity and suggest EF Core best practice improvements
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Models/Category.cs</summary>
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -217,24 +220,16 @@ public class Category
 }
 ```
 
-### 🤖 Advanced Copilot Practice
+</details>
 
-1. **Context Selection**: Select the entire entity class, then ask:
-```text
-"Analyze #selection and suggest improvements for EF Core best practices"
-```
+---
 
-2. **Model Comparison**:
-```text
-/model gpt-4-turbo
-"Review #selection for performance optimizations"
-```
+### ✅ Verification Checklist
 
-### ✅ Verification Point
-
-- Ensure the entity compiles without errors
-- Check that Data Annotations are correct
-- Verify navigation property is in place
+- [ ] File compiles without errors
+- [ ] Data Annotations present (`[Key]`, `[Required]`, `[MaxLength]`)
+- [ ] Navigation property `Expenses` defined
+- [ ] Both constructors present
 
 ---
 
@@ -242,24 +237,45 @@ public class Category
 
 ### 💰 Expense Entity Implementation
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to create the Expense entity:**
+
+1. Create new file: `Models/Expense.cs`
+2. Use Copilot Chat:
 
 ```text
-/generate Create an Entity Framework Core Expense entity in Models/Expense.cs with:
-- Guid Id (primary key, generated value)
-- decimal Amount (required, precision 18, scale 2, positive values only)
-- string Description (required, max 255 characters)
-- DateTime ExpenseDate (required, defaults to today)
-- Guid CategoryId (foreign key)
-- Category Category (navigation property, required)
-- DateTime CreatedAt, UpdatedAt (automatic audit fields)
-- Include Data Annotations for validation
-- Add constructors and computed property for CategoryName
+@workspace /newfile Create Models/Expense.cs - an EF Core entity with:
+- Guid Id (primary key)
+- decimal Amount (required, precision 18,2, must be positive)
+- string Description (required, max 255 chars)
+- DateTime ExpenseDate (defaults to today)
+- Guid CategoryId (foreign key to Category)
+- Category navigation property (required)
+- DateTime CreatedAt/UpdatedAt audit fields
+- [NotMapped] CategoryName computed property
+Include Data Annotations, Range validation, and constructors.
 ```
 
-**Expected file location**: `src/ExpenseTracker.Web/Models/Expense.cs`
+**🎯 Copilot Feature: Reference existing file**
 
-**Example Output**:
+Use `#file` to reference the Category entity:
+
+```text
+#file:Models/Category.cs Create a related Expense entity that references 
+this Category with proper foreign key and navigation properties
+```
+
+**🎯 Copilot Feature: `/doc` command**
+
+After creating the entity, add XML documentation:
+
+```text
+/doc #file:Models/Expense.cs Add XML documentation comments to all public members
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Models/Expense.cs</summary>
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -312,29 +328,61 @@ public class Expense
 }
 ```
 
+</details>
+
+---
+
+### ✅ Verification Checklist
+
+- [ ] `[Column(TypeName = "decimal(18,2)")]` present on Amount
+- [ ] `[Range]` validation for positive amounts
+- [ ] Foreign key `CategoryId` and navigation `Category` defined
+- [ ] `[NotMapped]` on computed `CategoryName`
+
 ---
 
 ## 📝 Step 4: Create DbContext (10 minutes)
 
 ### 🗄️ ExpenseTrackerContext Implementation
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to create the DbContext:**
+
+1. Create new file: `Data/ExpenseTrackerContext.cs`
+2. Use Copilot Chat with multiple file context:
 
 ```text
-/generate Create Entity Framework Core DbContext in Data/ExpenseTrackerContext.cs with:
-- DbSet<Category> Categories
-- DbSet<Expense> Expenses
-- OnModelCreating with Fluent API configurations:
+/generate Create Data/ExpenseTrackerContext.cs - EF Core DbContext with:
+- DbSet<Category> and DbSet<Expense>
+- OnModelCreating with Fluent API:
   * Category.Name unique index
-  * Expense-Category relationship with cascade delete
-  * Automatic CreatedAt/UpdatedAt timestamps via SaveChanges override
-  * Default values for Category.Color
-- Include seed data method with 5 sample categories
+  * Expense-Category cascade delete relationship
+  * decimal(18,2) for Amount
+  * Default "#6c757d" for Color
+- Override SaveChanges/SaveChangesAsync to auto-update CreatedAt/UpdatedAt
+- SeedData method with 5 categories (Food, Transportation, Entertainment, Shopping, Healthcare)
+Reference #file:Models/Category.cs and #file:Models/Expense.cs
 ```
 
-**Expected file location**: `src/ExpenseTracker.Web/Data/ExpenseTrackerContext.cs`
+**🎯 Copilot Feature: `@workspace` for project context**
 
-**Example Output**:
+```text
+@workspace Create a DbContext that works with all entity models in the Models folder, 
+with proper relationships and seed data
+```
+
+**🎯 Copilot Feature: `/explain` command**
+
+After generating, learn about the code:
+
+```text
+/explain #file:Data/ExpenseTrackerContext.cs Explain the OnModelCreating 
+configuration and why we override SaveChanges
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Data/ExpenseTrackerContext.cs</summary>
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -380,7 +428,6 @@ public class ExpenseTrackerContext : DbContext
 
     private void SeedData(ModelBuilder modelBuilder)
     {
-        // Use fixed Guids for reproducible migrations
         var categories = new[]
         {
             new Category { Id = Guid.Parse("a1b2c3d4-e5f6-7890-abcd-ef1234567890"), Name = "Food & Dining", Icon = "fas fa-utensils", Color = "#FF6384" },
@@ -422,22 +469,58 @@ public class ExpenseTrackerContext : DbContext
 }
 ```
 
+</details>
+
+---
+
+### ✅ Verification Checklist
+
+- [ ] Both `DbSet` properties defined
+- [ ] Unique index on `Category.Name`
+- [ ] Cascade delete configured
+- [ ] 5 seed categories with fixed GUIDs
+- [ ] `SaveChanges` override updates timestamps
+
 ---
 
 ## 📝 Step 5: Configure Services & Create Migration (5 minutes)
 
 ### ⚙️ Update Program.cs
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to configure dependency injection:**
+
+1. Open `Program.cs`
+2. Place cursor after `var builder = WebApplication.CreateBuilder(args);`
+3. Use Copilot Chat:
 
 ```text
-/generate Add DbContext configuration to Program.cs:
-- Register ExpenseTrackerContext with dependency injection
-- Use SQLite connection string from appsettings.json
-- Enable sensitive data logging in development
+#file:Program.cs Add ExpenseTrackerContext to DI container using SQLite 
+from appsettings.json "DefaultConnection". Enable sensitive data logging 
+and detailed errors in Development environment only.
 ```
 
-Add to `Program.cs`:
+**🎯 Copilot Feature: Inline completion with context**
+
+Type this comment in Program.cs:
+
+```csharp
+// Register ExpenseTrackerContext with SQLite from appsettings, enable dev logging
+```
+
+Press `Tab` to accept the suggestion.
+
+**🎯 Copilot Feature: `/fix` for missing usings**
+
+If you see red squiggles:
+
+```text
+/fix Add missing using statements for ExpenseTrackerContext and EntityFrameworkCore
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Program.cs additions</summary>
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
@@ -459,7 +542,19 @@ builder.Services.AddDbContext<ExpenseTrackerContext>(options =>
 // Rest of configuration...
 ```
 
+</details>
+
+---
+
 ### 🗄️ Create Initial Migration
+
+**🤖 Use Copilot with `@terminal` for commands:**
+
+```text
+@terminal Generate EF Core migration commands for initial database setup
+```
+
+**Run these commands:**
 
 ```bash
 # Create initial migration
@@ -478,7 +573,29 @@ ls -la *.db
 
 ### 🧪 Test Database Setup
 
-Create `Pages/DbTest.cshtml`:
+**🤖 Use GitHub Copilot to create a test page:**
+
+```text
+/generate Create Pages/DbTest.cshtml and Pages/DbTest.cshtml.cs - 
+a Razor Page that tests database connectivity by showing count of 
+Categories and Expenses from ExpenseTrackerContext. Include Bootstrap 
+styling with success alert.
+```
+
+**🎯 Copilot Feature: Generate paired Razor files**
+
+```text
+/generate Create a Razor Page pair (DbTest.cshtml + DbTest.cshtml.cs) that:
+- Injects ExpenseTrackerContext
+- Counts Categories and Expenses using async EF Core queries
+- Displays results in a Bootstrap success alert
+- Shows current timestamp
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Pages/DbTest.cshtml</summary>
 
 ```cshtml
 @page
@@ -498,7 +615,10 @@ Create `Pages/DbTest.cshtml`:
 </div>
 ```
 
-Create `Pages/DbTest.cshtml.cs`:
+</details>
+
+<details>
+<summary>✅ Click to verify: Expected Pages/DbTest.cshtml.cs</summary>
 
 ```csharp
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -526,6 +646,10 @@ public class DbTestModel : PageModel
     }
 }
 ```
+
+</details>
+
+---
 
 ### 🚀 Run and Verify
 

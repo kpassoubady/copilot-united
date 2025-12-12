@@ -28,13 +28,13 @@ By the end of this session, you will:
 
 ### 🎯 Two Approaches
 
-| Feature | **Option A: Minimal APIs** | **Option B: Controllers** |
-|---------|---------------------------|---------------------------|
-| **Style** | Modern, lightweight (like FastAPI) | Traditional MVC (like Spring Boot) |
-| **Location** | Functions in `Program.cs` | Class files in `Controllers/` |
-| **Boilerplate** | Less code, more concise | More structure, more verbose |
-| **Best For** | Microservices, small APIs | Large applications, team projects |
-| **Background** | New to .NET | Java/Spring developers |
+| Feature         | **Option A: Minimal APIs**         | **Option B: Controllers**          |
+|-----------------|------------------------------------|------------------------------------|
+| **Style**       | Modern, lightweight (like FastAPI) | Traditional MVC (like Spring Boot) |
+| **Location**    | Functions in `Program.cs`          | Class files in `Controllers/`      |
+| **Boilerplate** | Less code, more concise            | More structure, more verbose       |
+| **Best For**    | Microservices, small APIs          | Large applications, team projects  |
+| **Background**  | New to .NET                        | Java/Spring developers             |
 
 **📌 For This Bootcamp**: We'll follow **Option B: Controllers** as the primary approach because:
 - Better organized for enterprise applications
@@ -49,26 +49,49 @@ By the end of this session, you will:
 
 ### 🔧 ExpensesController Implementation
 
-**Copilot Chat Prompt:**
+**🤖 Use GitHub Copilot Chat to create the controller:**
+
+1. Create folder: `Controllers/Api/`
+2. Use Copilot Chat:
 
 ```text
-@workspace Using GitHub Copilot Chat Interface:
-
-"Create an ASP.NET Core API Controller for Expenses in Controllers/Api/ExpensesController.cs:
-- Route: /api/expenses
-- Inject IExpenseService
-- Implement GET all expenses - returns 200 OK
-- Implement GET by id - returns 200 OK or 404 NotFound
-- Implement POST create - returns 201 Created with location header
-- Implement PUT update - returns 204 NoContent or 404
-- Implement DELETE - returns 204 NoContent or 404
-- Include proper HTTP status codes
-- Add ProducesResponseType attributes for OpenAPI
-- Add XML documentation comments
-- Use async/await patterns"
+/generate Create Controllers/Api/ExpensesController.cs - ASP.NET Core API Controller:
+- Route: api/expenses
+- Inject IExpenseService and ILogger
+- GET all: returns 200 OK with IEnumerable<ExpenseDto>
+- GET {id}: returns 200 OK or 404 NotFound
+- POST: returns 201 Created with location header
+- PUT {id}: returns 204 NoContent or 404
+- DELETE {id}: returns 204 NoContent or 404
+- GET total: returns total expenses amount
+- GET by-category: returns grouped expenses
+Include [ProducesResponseType] attributes and XML docs.
+Reference #file:Services/IExpenseService.cs for methods.
 ```
 
-**Expected Output**:
+**🎯 Copilot Feature: `@workspace` for service context**
+
+```text
+@workspace Create an API controller that uses IExpenseService, 
+following REST best practices with proper HTTP status codes
+```
+
+**🎯 Copilot Feature: Inline completion for controller methods**
+
+Type in the controller file:
+
+```csharp
+/// <summary>
+/// Get all expenses
+/// </summary>
+[HttpGet]
+// Copilot will suggest the full method implementation
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected ExpensesController.cs</summary>
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -200,13 +223,27 @@ public class ExpensesController : ControllerBase
 }
 ```
 
+</details>
+
+---
+
 ### 🔧 CategoriesController Implementation
 
-Similar pattern for `Controllers/Api/CategoriesController.cs`.
+**🤖 Use pattern-based generation:**
 
-**Copilot Prompt:**
 ```text
-@workspace "Create CategoriesController following the same pattern as ExpensesController"
+#file:Controllers/Api/ExpensesController.cs Create CategoriesController 
+following the same pattern, using ICategoryService instead.
+Include CRUD operations for categories.
+```
+
+**🎯 Alternative Copilot Feature: Pattern replication**
+
+Copilot recognizes patterns - use existing controller as template:
+
+```text
+@workspace Based on #file:Controllers/Api/ExpensesController.cs, 
+create a matching CategoriesController with ICategoryService
 ```
 
 ---
@@ -215,13 +252,39 @@ Similar pattern for `Controllers/Api/CategoriesController.cs`.
 
 ### 🚀 Minimal API Endpoints
 
-If you prefer Minimal APIs, add to `Program.cs`:
+**🤖 Use GitHub Copilot for Minimal APIs:**
+
+If you prefer the modern Minimal API approach, use this prompt:
+
+```text
+#file:Program.cs Add Minimal API endpoints for Expenses:
+- MapGroup("/api/expenses") with tags
+- MapGet all, MapGet by id, MapPost, MapPut, MapDelete
+- Use IExpenseService from DI
+- Include proper Results (Ok, NotFound, Created)
+- Add Produces<T> attributes for response types
+```
+
+**🎯 Copilot Feature: Inline completion in Program.cs**
+
+Type:
+
+```csharp
+// Minimal API endpoints for expenses
+var expensesApi = app.MapGroup("/api/expenses")
+```
+
+Press `Tab` - Copilot will suggest the complete endpoint group.
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Minimal API code</summary>
 
 ```csharp
 // Expense endpoints
 var expensesApi = app.MapGroup("/api/expenses")
-    .WithTags("Expenses")
-    .WithOpenApi();
+    .WithTags("Expenses");
 
 expensesApi.MapGet("/", async (IExpenseService service) =>
 {
@@ -251,6 +314,8 @@ expensesApi.MapPost("/", async (CreateExpenseDto dto, IExpenseService service) =
 // ... similar for PUT, DELETE
 ```
 
+</details>
+
 ---
 
 ## 📝 Step 3: Test APIs with Swagger (10 minutes)
@@ -265,31 +330,71 @@ dotnet run
 # https://localhost:5001/swagger
 ```
 
-**Copilot-Assisted Testing**:
+**🤖 Use Copilot `@terminal` for test commands:**
 
 ```text
-@terminal "What curl commands can I use to test the expenses API?"
+@terminal Generate curl commands to test all CRUD operations 
+on the /api/expenses endpoint with sample JSON data
+```
+
+**🎯 Copilot Feature: `@terminal` for CLI help**
+
+```text
+@terminal How do I use curl to POST JSON to a local HTTPS API 
+with self-signed certificate?
 ```
 
 ### 🔍 Test with curl
 
+**🤖 Let Copilot generate test commands:**
+
+```text
+@workspace @terminal Generate curl commands to test:
+1. GET all expenses
+2. POST new expense with Food category
+3. GET total expenses
+4. DELETE an expense
+Use the seed data category IDs from #file:Data/ExpenseTrackerContext.cs
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected curl commands</summary>
+
 ```bash
-# Get all expenses
+# Get all expenses (using https)
 curl -X GET https://localhost:5001/api/expenses -k
 
-# Create expense
+# Create expense (Food & Dining category from seed data) (using https)
 curl -X POST https://localhost:5001/api/expenses \
   -H "Content-Type: application/json" \
   -d '{
     "amount": 45.99,
     "description": "Grocery shopping",
     "expenseDate": "2025-12-07",
-    "categoryId": "<paste-category-id>"
+    "categoryId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
   }' -k
 
 # Get total
 curl -X GET https://localhost:5001/api/expenses/total -k
+
+# Get by category
+curl -X GET https://localhost:5001/api/expenses/by-category -k
+
+# Add new expense using curl (note:http)
+curl -X POST http://localhost:5000/api/expenses \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amount": 45.99,
+    "description": "Lunch at restaurant",
+    "expenseDate": "2025-12-12",
+    "categoryId": "11111111-1111-1111-1111-111111111111"
+  }'
+
 ```
+
+</details>
 
 ---
 
@@ -297,22 +402,47 @@ curl -X GET https://localhost:5001/api/expenses/total -k
 
 ### 🛡️ Global Exception Handler
 
-**Copilot Prompt:**
+**🤖 Use GitHub Copilot to create middleware:**
 
 ```text
-@workspace "Create global exception handling middleware in Middleware/ExceptionHandlingMiddleware.cs:
-- Catch all unhandled exceptions
-- Log errors
-- Return appropriate HTTP status codes
-- Return problem details JSON
-- Handle different exception types (ValidationException, KeyNotFoundException, etc.)"
+/generate Create Middleware/ExceptionHandlingMiddleware.cs:
+- Implement IMiddleware pattern
+- Catch all unhandled exceptions in try-catch
+- Log errors with ILogger
+- Return ProblemDetails JSON for errors
+- Map exception types to HTTP status codes:
+  * ValidationException → 400 Bad Request
+  * KeyNotFoundException → 404 Not Found
+  * UnauthorizedAccessException → 401 Unauthorized
+  * Exception → 500 Internal Server Error
+Include request path in error details for debugging.
 ```
 
-Add to `Program.cs`:
+**🎯 Copilot Feature: `/explain` middleware pattern**
+
+```text
+/explain What is the middleware pipeline in ASP.NET Core 
+and how does exception handling middleware work?
+```
+
+**🤖 Register middleware in Program.cs:**
+
+```text
+#file:Program.cs Add ExceptionHandlingMiddleware to the pipeline 
+before other middleware. Show the correct ordering.
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected middleware registration</summary>
 
 ```csharp
+// Add early in pipeline, before other middleware
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 ```
+
+</details>
 
 ---
 

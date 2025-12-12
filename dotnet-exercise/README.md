@@ -1,6 +1,6 @@
 # .NET Exercise: Personal Expense Tracker
 
-A comprehensive GitHub Copilot Mastery Bootcamp for building a full-stack ASP.NET Core 8.0 web application.
+A comprehensive GitHub Copilot Mastery Bootcamp for building a full-stack ASP.NET Core 10.0 web application.
 
 ## Overview
 
@@ -10,7 +10,7 @@ Build a **Personal Expense Tracker** while mastering AI-assisted development wit
 
 ```bash
 # 1. Verify prerequisites
-dotnet --version       # Should be 8.0+
+dotnet --version       # Should be 10.0+
 dotnet ef --version    # EF Core tools
 
 # 2. Start with backend setup
@@ -39,17 +39,17 @@ dotnet-exercise/
 
 ## Learning Path
 
-| Session | Duration | Topics | Copilot Skills |
-|---------|----------|--------|----------------|
-| **Setup** | 15 min | Environment verification | - |
-| **Session 1** | 45 min | Models & DbContext | Context selection, code generation |
-| **Session 2** | 45 min | Services & Testing | Pattern recognition, test generation |
-| **Session 3** | 45 min | REST APIs | Chat Interface, agents |
-| **Session 4** | 45 min | Razor Pages UI | Multi-language coordination |
+| Session       | Duration | Topics                   | Copilot Skills                       |
+|---------------|----------|--------------------------|--------------------------------------|
+| **Setup**     | 15 min   | Environment verification | -                                    |
+| **Session 1** | 45 min   | Models & DbContext       | Context selection, code generation   |
+| **Session 2** | 45 min   | Services & Testing       | Pattern recognition, test generation |
+| **Session 3** | 45 min   | REST APIs                | Chat Interface, agents               |
+| **Session 4** | 45 min   | Razor Pages UI           | Multi-language coordination          |
 
 ## Technology Stack
 
-- **Framework**: ASP.NET Core 8.0, Entity Framework Core 8.0
+- **Framework**: ASP.NET Core 10.0, Entity Framework Core 10.0
 - **Database**: SQLite (development)
 - **Frontend**: Razor Pages, Bootstrap 5.3, Chart.js
 - **Validation**: FluentValidation
@@ -57,7 +57,7 @@ dotnet-exercise/
 
 ## Prerequisites
 
-- .NET 8 SDK
+- .NET 10 SDK
 - Visual Studio 2022 or VS Code with C# Dev Kit
 - GitHub Copilot extension (authenticated)
 - Git
@@ -82,14 +82,14 @@ A complete expense tracking application with:
 
 The `3-games/` directory contains 16 interactive exercises to reinforce Copilot skills:
 
-| Category | Games | Focus |
-|----------|-------|-------|
-| **Prompt Engineering** | 1, 3, 8 | Writing effective prompts |
-| **Code Generation** | 2, 6, 7, 10 | From basic to complex |
-| **Critical Evaluation** | 4, 5, 9 | Reviewing AI output |
-| **Copilot Interface** | 11, 12 | Context & commands |
-| **Docs & Testing** | 13, 14 | XML docs, xUnit |
-| **Advanced** | 15, 16 | Git, agents |
+| Category                | Games       | Focus                     |
+|-------------------------|-------------|---------------------------|
+| **Prompt Engineering**  | 1, 3, 8     | Writing effective prompts |
+| **Code Generation**     | 2, 6, 7, 10 | From basic to complex     |
+| **Critical Evaluation** | 4, 5, 9     | Reviewing AI output       |
+| **Copilot Interface**   | 11, 12      | Context & commands        |
+| **Docs & Testing**      | 13, 14      | XML docs, xUnit           |
+| **Advanced**            | 15, 16      | Git, agents               |
 
 ## License
 

@@ -100,8 +100,8 @@ Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot M
 ## 🛠️ Technology Stack
 
 ### Backend Framework
-- **ASP.NET Core 8.0** (LTS) - Modern, cross-platform web framework
-- **Entity Framework Core 8.0** - Code-First ORM for database operations
+- **ASP.NET Core 10.0** - Modern, cross-platform web framework
+- **Entity Framework Core 10.0** - Code-First ORM for database operations
 - **FluentValidation 11.3+** - Expressive validation rules
 - **Built-in Dependency Injection** - Clean architecture support
 
@@ -127,7 +127,7 @@ Welcome to the **Personal Expense Tracker** - a comprehensive **GitHub Copilot M
 After completing this bootcamp, you will be able to:
 
 ### Technical Skills
-- ✅ Build production-ready ASP.NET Core 8.0 applications
+- ✅ Build production-ready ASP.NET Core 10.0 applications
 - ✅ Design Entity Framework Core models with proper relationships
 - ✅ Implement service layers with dependency injection
 - ✅ Create RESTful APIs using Minimal APIs or Controllers
@@ -173,7 +173,7 @@ After completing this bootcamp, you will be able to:
 - Git basics (clone, commit, push)
 
 ### Required Software
-- ✅ **.NET 8 SDK** installed ([download](https://dotnet.microsoft.com/download))
+- ✅ **.NET 10 SDK** installed ([download](https://dotnet.microsoft.com/download))
 - ✅ **Visual Studio 2022** or **VS Code** with C# extension
 - ✅ **GitHub Copilot** extension enabled and authenticated
 - ✅ **Entity Framework Core Tools** (`dotnet ef` command)
@@ -181,7 +181,7 @@ After completing this bootcamp, you will be able to:
 
 ### Verification Commands
 ```bash
-# Check .NET version (should be 8.0 or higher)
+# Check .NET version (should be 10.0 or higher)
 dotnet --version
 
 # Verify EF Core tools

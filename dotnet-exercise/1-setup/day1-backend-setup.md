@@ -15,10 +15,10 @@ This setup ensures you have everything needed to successfully complete Day 1 of 
 **.NET SDK**
 
 ```bash
-# Check .NET version (should be 8.0 or higher)
+# Check .NET version (should be 10.0 or higher)
 dotnet --version
 
-# Expected output should show version 8.0.x or higher
+# Expected output should show version 10.0.x or higher
 # If not installed, download from: https://dotnet.microsoft.com/download
 ```
 
@@ -77,23 +77,39 @@ Test Copilot functionality:
 
 ### 🎯 Add Required Packages
 
+**🤖 Use GitHub Copilot to identify required packages:**
+
+```text
+@workspace What NuGet packages do I need for an ASP.NET Core 10 app with:
+- Entity Framework Core with SQLite
+- FluentValidation for input validation
+- OpenAPI/Swagger for API documentation
+List the dotnet add package commands.
+```
+
+**Run these commands:**
+
 ```bash
 # Navigate to project directory (if not already there)
 cd src/ExpenseTracker.Web
 
 # Entity Framework Core with SQLite
-dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0
-dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.0
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
 
 # Validation
-dotnet add package FluentValidation.AspNetCore --version 11.3.0
+dotnet add package FluentValidation.AspNetCore
 
-# OpenAPI/Swagger (usually included in webapp template)
-dotnet add package Swashbuckle.AspNetCore --version 6.5.0
+# OpenAPI/Swagger for API documentation
+dotnet add package Microsoft.AspNetCore.OpenApi
+dotnet add package Swashbuckle.AspNetCore
+```
 
-# Optional: SQL Server support (for production)
-# dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 8.0.0
+**🎯 Copilot Feature: `@terminal` for package commands**
+
+```text
+@terminal What is the command to add Entity Framework Core SQLite package to my .NET project?
 ```
 
 ### 📋 Verify Packages Installed
@@ -101,14 +117,41 @@ dotnet add package Swashbuckle.AspNetCore --version 6.5.0
 ```bash
 # List all packages
 dotnet list package
-
-# You should see:
-# - Microsoft.EntityFrameworkCore.Sqlite
-# - Microsoft.EntityFrameworkCore.Design
-# - Microsoft.EntityFrameworkCore.Tools
-# - FluentValidation.AspNetCore
-# - Swashbuckle.AspNetCore
 ```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected ExpenseTracker.Web.csproj</summary>
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+  </ItemGroup>
+
+</Project>
+```
+
+</details>
 
 ---
 
@@ -116,7 +159,29 @@ dotnet list package
 
 ### 💾 SQLite Database Configuration
 
-Update `appsettings.json`:
+**🤖 Use GitHub Copilot to modify appsettings.json:**
+
+1. Open `appsettings.json` in your editor
+2. Open Copilot Chat (Ctrl+Shift+I / Cmd+Shift+I)
+3. Use this prompt:
+
+```text
+#file:appsettings.json Add SQLite database connection string named "DefaultConnection" 
+with database file "expensetracker.db". Also add Entity Framework Core 
+logging at Information level for database commands.
+```
+
+**Alternative: Use `/edit` command:**
+
+```text
+/edit #file:appsettings.json Add ConnectionStrings section with DefaultConnection 
+for SQLite database "expensetracker.db" and enable EF Core command logging
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected appsettings.json</summary>
 
 ```json
 {
@@ -134,9 +199,25 @@ Update `appsettings.json`:
 }
 ```
 
+</details>
+
+---
+
 ### 🔒 Add Database to .gitignore
 
-Create or update `.gitignore` in project root:
+**🤖 Use GitHub Copilot to create .gitignore:**
+
+```text
+Create a .gitignore file for an ASP.NET Core project 
+with SQLite database. Include: database files (*.db, *.db-shm, *.db-wal), 
+build artifacts, IDE folders (.vscode, .idea), but keep .vscode/tasks.json 
+and launch.json.
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected .gitignore</summary>
 
 ```gitignore
 # Database files
@@ -163,6 +244,8 @@ obj/
 # Rider
 .idea/
 ```
+
+</details>
 
 ---
 
@@ -205,17 +288,41 @@ ExpenseTracker/                  # Solution root
 
 ### 🧪 Test Basic Setup
 
-Create a simple health check endpoint in `Program.cs`:
+**🤖 Use GitHub Copilot to add a health check endpoint:**
+
+1. Open `Program.cs`
+2. Place cursor before `app.Run();`
+3. Use inline comment prompt:
 
 ```csharp
-// Add this before app.Run();
-app.MapGet("/health", () => Results.Ok(new { 
-    Status = "Healthy", 
-    Timestamp = DateTime.UtcNow 
-}))
-.WithName("HealthCheck")
-.WithOpenApi();
+// Add a minimal API health check endpoint at /health that returns JSON with Status and Timestamp
 ```
+
+4. Press `Tab` to accept Copilot's suggestion
+
+**Alternative: Use Copilot Chat with context:**
+
+```text
+#file:Program.cs Add a minimal API health check endpoint at /health 
+that returns a HealthResponse record with Status="Healthy" and current UTC timestamp.
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected health check code</summary>
+
+```csharp
+// Add HealthResponse record at the end of Program.cs
+public record HealthResponse(string Status, DateTime Timestamp);
+
+// Add this before app.Run();
+app.MapGet("/health", () => Results.Ok(new HealthResponse("Healthy", DateTime.UtcNow)))
+    .WithName("Health")
+    .Produces<HealthResponse>(StatusCodes.Status200OK, "application/json");
+```
+
+</details>
 
 ### 🚀 Run Verification
 
@@ -226,18 +333,103 @@ dotnet build
 # Run the application
 dotnet run
 
-# Expected output:
+# Expected output (port may vary based on launchSettings.json):
 # info: Microsoft.Hosting.Lifetime[14]
-#       Now listening on: http://localhost:5000
-# info: Microsoft.Hosting.Lifetime[14]
-#       Now listening on: https://localhost:5001
+#       Now listening on: http://localhost:<port>
+# info: Microsoft.Hosting.Lifetime[0]
+#       Application started. Press Ctrl+C to shut down.
 
-# In another terminal, test the health endpoint:
-curl http://localhost:5000/health
+# In another terminal, test the health endpoint (use the port shown in console):
+curl http://localhost:<port>/health
 
 # Expected response:
 # {"status":"Healthy","timestamp":"2025-12-07T..."}
 ```
+
+> **📝 Note**: The port number is configured in `Properties/launchSettings.json`. 
+> Check the console output for the actual port your application is using.
+
+---
+
+## 🌐 Configure Launch Settings & HTTPS
+
+### 📝 Configure launchSettings.json
+
+**🤖 Use GitHub Copilot to configure launch settings:**
+
+```text
+#file:Properties/launchSettings.json Configure launch profiles for ASP.NET Core:
+- "http" profile on port 5000
+- "https" profile on ports 5001 (HTTPS) and 5000 (HTTP)
+- Set ASPNETCORE_ENVIRONMENT to Development
+- Enable launch browser to swagger
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Properties/launchSettings.json</summary>
+
+```json
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+---
+
+### 🔒 Disable HTTPS Redirection for Development
+
+If you see the warning `Failed to determine the https port for redirect`, you can disable HTTPS redirection for local development.
+
+**🤖 Use GitHub Copilot to update Program.cs:**
+
+```text
+#file:Program.cs Wrap app.UseHttpsRedirection() in a condition 
+to only enable it in non-Development environments.
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected HTTPS configuration</summary>
+
+```csharp
+// In Program.cs, replace:
+// app.UseHttpsRedirection();
+
+// With:
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+```
+
+</details>
 
 ---
 
@@ -245,11 +437,22 @@ curl http://localhost:5000/health
 
 ### 📝 VS Code Settings
 
-Create `.vscode/settings.json` for optimal C# development:
+**🤖 Use GitHub Copilot to create VS Code settings:**
+
+```text
+Create .vscode/settings.json for ASP.NET Core C# development 
+with: default solution "ExpenseTracker.slnx", Roslyn analyzers enabled, 
+format on save for C#, organize imports on save.
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected .vscode/settings.json</summary>
 
 ```json
 {
-    "dotnet.defaultSolution": "ExpenseTracker.sln",
+    "dotnet.defaultSolution": "ExpenseTracker.slnx",
     "omnisharp.enableRoslynAnalyzers": true,
     "omnisharp.enableEditorConfigSupport": true,
     "omnisharp.organizeImportsOnFormat": true,
@@ -262,9 +465,24 @@ Create `.vscode/settings.json` for optimal C# development:
 }
 ```
 
+</details>
+
+---
+
 ### 🎨 GitHub Copilot Settings
 
-Recommended Copilot settings for C# development:
+**🤖 Use GitHub Copilot to configure itself:**
+
+```text
+Add to .vscode/settings.json: GitHub Copilot settings 
+for C# development - enable for all except yaml/plaintext, 
+set agent temperature to 0.1 for consistent suggestions.
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected Copilot settings</summary>
 
 ```json
 {
@@ -273,16 +491,29 @@ Recommended Copilot settings for C# development:
         "yaml": false,
         "plaintext": false
     },
-    "github.copilot.advanced": {
-        "length": 500,
-        "temperature": 0.1
-    }
+    "github.copilot.chat.agent.temperature": 0.1
 }
 ```
 
+</details>
+
+---
+
 ### 🚀 VS Code Tasks (Optional)
 
-Create `.vscode/tasks.json`:
+**🤖 Use GitHub Copilot to create build tasks:**
+
+```text
+@workspace /newfile .vscode/tasks.json with two tasks:
+1. "build" - runs dotnet build on ExpenseTracker.sln
+2. "run" - runs dotnet run on src/ExpenseTracker.Web
+Use $msCompile problem matcher.
+```
+
+---
+
+<details>
+<summary>✅ Click to verify: Expected .vscode/tasks.json</summary>
 
 ```json
 {
@@ -294,7 +525,7 @@ Create `.vscode/tasks.json`:
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ExpenseTracker.sln"
+                "${workspaceFolder}/ExpenseTracker.slnx"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -313,6 +544,8 @@ Create `.vscode/tasks.json`:
 }
 ```
 
+</details>
+
 ---
 
 ## 📚 Development Tools
@@ -326,8 +559,11 @@ dotnet build
 # Run application with hot reload
 dotnet watch run
 
+# Run watch with specific project
+dotnet watch --project src/ExpenseTracker.Web/ExpenseTracker.Web.csproj run
+
 # Run specific project
-dotnet run --project src/ExpenseTracker.Web
+dotnet run --project src/ExpenseTracker.Web/ExpenseTracker.Web.csproj
 
 # Clean build artifacts
 dotnet clean
@@ -339,10 +575,10 @@ dotnet restore
 dotnet test
 
 # Create EF Core migration
-dotnet ef migrations add InitialCreate --project src/ExpenseTracker.Web
+dotnet ef migrations add InitialCreate --project src/ExpenseTracker.Web/ExpenseTracker.Web.csproj
 
 # Update database
-dotnet ef database update --project src/ExpenseTracker.Web
+dotnet ef database update --project src/ExpenseTracker.Web/ExpenseTracker.Web.csproj
 ```
 
 ### 🌐 Access Points (after app starts)
@@ -373,8 +609,8 @@ dotnet restore
 # List installed SDKs
 dotnet --list-sdks
 
-# Install .NET 8 SDK if missing:
-# Download from https://dotnet.microsoft.com/download/dotnet/8.0
+# Install .NET 10 SDK if missing:
+# Download from https://dotnet.microsoft.com/download/dotnet/10.0
 ```
 
 **EF Core Tools Not Found**
@@ -416,7 +652,7 @@ dotnet ef --version
 
 ### 🎯 Success Checklist
 
-- [ ] .NET 8 SDK installed and verified
+- [ ] .NET 10 SDK installed and verified
 - [ ] Entity Framework Core tools installed
 - [ ] IDE configured with C# and Copilot extensions
 - [ ] Solution and project structure created
